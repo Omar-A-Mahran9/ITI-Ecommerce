@@ -36,6 +36,19 @@ if (loginForm) {
     loginForm.addEventListener('submit', login);
 } // when user submit to login
 
+
+// user profile page
+function profileInfo() {
+    var user = JSON.parse(sessionStorage.getItem('user'));
+    document.getElementById('profile_username').value = user.username;
+    document.getElementById('profile_email').value = user.useremail;
+    document.getElementById('profile_logout').addEventListener('click', function(){
+        location.replace('../../../src/Pages/logout.html');
+    });
+}
+
+
+
 function login(event) {
     event.preventDefault();
     // get form input values
