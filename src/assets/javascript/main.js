@@ -10,9 +10,9 @@ function loadUserData() {
     if (user) {
         document.getElementById('user').innerHTML = user.username;
         document.getElementById('user_login').innerHTML = 'profile'
-        document.getElementById('user_login').href = '../../../src/Pages/profile.html';
+        document.getElementById('user_login').href = '/src/Pages/profile.html';
         document.getElementById('user_register').innerHTML = 'logout'
-        document.getElementById('user_register').href = '../../../src/Pages/logout.html';
+        document.getElementById('user_register').href = '/src/Pages/logout.html';
     }
 }
 
@@ -43,7 +43,7 @@ function profileInfo() {
     document.getElementById('profile_username').value = user.username;
     document.getElementById('profile_email').value = user.useremail;
     document.getElementById('profile_logout').addEventListener('click', function(){
-        location.replace('../../../src/Pages/logout.html');
+        location.replace('/src/Pages/logout.html');
     });
 }
 
@@ -83,7 +83,7 @@ function login(event) {
     successMsg('Login Successfully');
     errLoginDiv.prepend(showMsg);
     sessionStorage.setItem('user', JSON.stringify(userInfo)); // save user info to session 
-    redirect('../../index.html', 500);
+    redirect('/index.html', 500);
 
 } // end login function
 
@@ -146,7 +146,7 @@ function addNewUser(event) {
     successMsg("Registeration Success,<br/> Please wait unitll redirect to home page");
     errRegDiv.appendChild(showMsg);
     // redirect to home page
-    return redirect('../../index.html', 1500);
+    return redirect('/index.html', 1500);
 } // end add new user function
 
 function checkEmptyFields(...inputs) {
