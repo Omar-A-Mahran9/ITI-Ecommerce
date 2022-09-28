@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+ HEAD
 #name_error,
 #email_error,
 #password_error,
@@ -6,7 +6,8 @@
     position: absolute;
     right: 10px;
 }
-=======
+
+
 /*/////////////////////Ahmed Samy/////////////////////*/
 /* Global Styles */
 *{
@@ -824,6 +825,9 @@ footer .copyright{
 
 /*/////////////////////End Ahmed Samy/////////////////////*/
 
+.img{
+    width: 200px;
+    height: 250px;
+    background-color: rgb(224, 224, 224);
+}
 
-
->>>>>>> 22cadc60955693d6dd503a82c22bef041f996a7a

@@ -13,7 +13,7 @@ function loadUserData() {
         document.getElementById('user_register').innerHTML = 'logout'
         document.getElementById('user_register').href = '/src/Pages/logout.html';
     }
-    
+
 } // if user logged in show info in navbar
 
 
@@ -292,32 +292,64 @@ function getUserInfo(email) {
 
 /* /////////////////////////////// Home, Shop and Single Products Pages/////////////////////////////// */
 
-document.addEventListener("DOMContentLoaded", function(){
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-          document.getElementById('navbar_top').classList.add('fixed-top');
-          navbar_height = document.querySelector('.navbar').offsetHeight;
-          document.body.style.paddingTop = navbar_height + 'px';
-        } else {
-          document.getElementById('navbar_top').classList.remove('fixed-top');
-          document.body.style.paddingTop = '0';
-        } 
+// document.addEventListener("DOMContentLoaded", function(){
+//     window.addEventListener('scroll', function() {
+//         if (window.scrollY > 50) {
+//           document.getElementById('navbar_top').classList.add('fixed-top');
+//           navbar_height = document.querySelector('.navbar').offsetHeight;
+//           document.body.style.paddingTop = navbar_height + 'px';
+//         } else {
+//           document.getElementById('navbar_top').classList.remove('fixed-top');
+//           document.body.style.paddingTop = '0';
+//         } 
+//     });
+//   });
+
+// let carts = document.querySelectorAll("add-cart");
+
+// for(let i=0; i< carts.length; i++){
+//     console.log("loop "+i);
+// }
+
+// function activeSectionHighlight() {
+//     window.addEventListener("scroll", () => {
+//         sections.forEach((y, i) => {
+//             const rectBoundary = y.getBoundingClientRect();
+//             if (rectBoundary.top > -5 && rectBoundary.top < 300) {
+//                 const secnav = y.getAttribute("data-nav"); 
+//             }
+//         })
+//     })
+// }
+
+
+
+////////////// show all products //////////
+
+let products = document.querySelector(".products");
+
+fetch('https://fakestoreapi.com/products')
+    .then(res => res.json())
+    .then(json => {
+
+        for (let value of json) {
+            addElement(products, value)
+        }
+
     });
-  });
-
-let carts = document.querySelectorAll("add-cart");
-
-for(let i=0; i< carts.length; i++){
-    console.log("loop "+i);
-}
-
-function activeSectionHighlight() {
-    window.addEventListener("scroll", () => {
-        sections.forEach((y, i) => {
-            const rectBoundary = y.getBoundingClientRect();
-            if (rectBoundary.top > -5 && rectBoundary.top < 300) {
-                const secnav = y.getAttribute("data-nav"); 
-            }
-        })
-    })
+// get value from the api
+function addElement(productSec, value) {
+    let div = document.createElement('div');
+    div.className = "col-4 mt-3";
+    let { image, title, category, price } = value;
+    div.innerHTML = `
+            <img src="${image}" class="img alt="img">
+            <div class="product my-4">
+                <h5 class="mt-2">${title}</h5>
+                <p class="mb-0">${category}</p>
+                <span class="d-block">$${price}</span>
+                <button class="btn btn-primary btn-sm mt-2"><i class="fa-solid fa-cart-plus"></i></button>
+            </div>
+    `;
+    productSec.appendChild(div);
 }
