@@ -14,16 +14,17 @@
     <!-- Bootstrap CSS v5.2.0-beta1 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" href="/src/assets/style/css/main.css">
+    <link rel="stylesheet" href="./src/assets/style/css/main.css">
 </head>
 
 <body onload="loadUserData()">
+    
     <!-- Header and Navbar -->
     <header>
         <div class="container">
-            <nav class="navbar navbar-expand-lg">
+            <nav class="navbar navbar-expand-lg" id="navbar_top">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/index.html">Logo</a>
+                    <a class="navbar-brand" href="./index.html">Logo</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -32,10 +33,10 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                                <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/index.html#products">Products</a>
+                                <a class="nav-link" href="./src/Pages/shop.html">Products</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="/index.html#about">About</a>
@@ -69,57 +70,478 @@
             </nav>
         </div>
     </header>
-    <!-- Header and Navbar -->
-    
+    <!-- Header and Navbar -->             
 
+    <!-- Section 1 -->       
+    <section class="home-header">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons & up to 70% off!</p>
+        <a href="shop.html"><button>Shop Now</button></a>
+    </section>
+    <!-- End Section 1 -->      
 
+    <!-- Section 2 -->
+    <section class="section-p1" id="feature">
+        <div class="fe-box">
+            <img src="./img/#" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="./img/#" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="./img/#" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="./img/#" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="./img/#" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="./img/#" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+    </section>
+    <!-- End Section 2 -->
 
-
-
-    <!-- About Us Section -->
-    <div class="aboutus" id="about">
-        <div class="container">
-            <div class="main-heading">
-                <h2>About Us</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio minima recusandae fuga culpa sapiente veritatis minus iste, repudiandae, unde obcaecati consectetur optio explicabo vero in corrupti nulla voluptate incidunt suscipit?</p>
+    <!-- Section 3 -->        
+    <section class="section-p1" id="product1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
             </div>
         </div>
-    </div>
-    <!-- About Us Section -->
+    </section>
+    <!-- End Section 3 -->      
 
+    <!-- Section 4 -->            
+    <section class="section-m1" id="banner">
+        <h4>Spec Service</h4>
+        <h2>Up to <span>50% Off</span> - All products and blablabla</h2>
+        <button class="normal">Explore More</button>
+    </section>
+    <!-- End Section 4 -->          
 
-    <!-- Contact Us Section -->
-    <div class="contact" id="contact">
-        <div class="container">
-            <div class="main-heading">
-                <h2>Contact Us</h2>
-                <p>
-                    Insert your info and your message , we will be in touch very soon.
-                </p>
+    <!-- Section 5 -->           
+    <section class="section-p1" id="product1">
+        <h2>New Arrivals</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="pro-container">
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
             </div>
-            <div class="content">
-                <form action="">
-                    <input class="main-input" type="text" name="name" placeholder="Type Your Name">
-                    <input class="main-input" type="email" name="email" placeholder="Type Your Email">
-                    <textarea class="main-input" type="message" name="name" placeholder="Type Your Message"></textarea>
-                    <input type="submit" value="Send Message">
-                </form>
-                <div class="info">
-                    <h4>Get In Touch</h4>
-                    <span class="phone">+123 456 789</span>
-                    <span class="phone">+123 456 789</span>
-                    <h4>Where we are</h4>
-                    <address>
-                        Eltahrir Square<br>Cairo<br>Egypt
-                    </address>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+            <div class="pro">
+                <img src="./img/#" alt="">
+                <div class="des">
+                    <span>adidas</span>
+                    <h5>Cartoon T-shirt</h5>
+                    <div class="star">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+            </div>
+        </div>
+    </section>
+    <!-- End Section 5 -->   
+    
+    <!-- Section 6 -->
+    <section class="section-p1" id="sm-banner">
+        <div class="banner-box">
+            <h4>Crazy Deals</h4>
+            <h2>Buy 1 Get 1 Free</h2>
+            <span>The best ------ is on sale at ---</span>
+            <button class="white">Learn More</button>
+        </div>
+        <div class="banner-box banner-box2">
+            <h4>Crazy Deals</h4>
+            <h2>Buy 1 Get 1 Free</h2>
+            <span>The best ------ is on sale at ---</span>
+            <button class="white">Learn More</button>
+        </div>
+    </section>
+    <!-- End Section 6 -->
+
+    <!-- Section 7 -->
+    <section id="banner3">
+        <div class="banner-box">
+            <h4>Deals</h4>
+            <h2>New --- 50% OFF</h2>
+        </div>
+        <div class="banner-box banner-box2">
+            <h4>Deals</h4>
+            <h2>New --- 50% OFF</h2>
+        </div>
+        <div class="banner-box banner-box3">
+            <h4>Deals</h4>
+            <h2>New --- 50% OFF</h2>
+        </div>
+    </section>
+    <!-- End Section 7 -->
+
+
+
+
+    <!-- About Us Section -->
+    <section class="section-p1" data-nav="aboutus">
+        <div class="aboutus" id="about">
+            <div class="container">
+                <div class="main-heading">
+                    <h2>About Us</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio minima recusandae fuga culpa sapiente veritatis minus iste, repudiandae, unde obcaecati consectetur optio explicabo vero in corrupti nulla voluptate incidunt suscipit?</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+    
+    <!-- About Us Section -->
+
+
+    <!-- Contact Us Section -->
+    <section class="section-p1" data-nav="contactus">
+        <div class="contact" id="contact">
+            <div class="container">
+                <div class="main-heading">
+                    <h2>Contact Us</h2>
+                    <p>
+                        Insert your info and your message , we will be in touch very soon.
+                    </p>
+                </div>
+                <div class="content">
+                    <form action="">
+                        <input class="main-input" type="text" name="name" placeholder="Type Your Name">
+                        <input class="main-input" type="email" name="email" placeholder="Type Your Email">
+                        <textarea class="main-input" type="message" name="name" placeholder="Type Your Message"></textarea>
+                        <input type="submit" value="Send Message">
+                    </form>
+                    <div class="info">
+                        <h4>Get In Touch</h4>
+                        <span class="phone">+123 456 789</span>
+                        <span class="phone">+123 456 789</span>
+                        <h4>Where we are</h4>
+                        <address>
+                            Eltahrir Square<br>Cairo<br>Egypt
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Contact Us Section -->
 
-    <!-- Footer Section -->
 
+    <!-- Section 8 -->
+    <section class="section-p1 section-m1" id="newsletter">
+        <div class="newstext">
+            <h4>Get Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your E-mail address">
+            <button class="normal">Submit</button>
+        </div>
+    </section>
+    <!-- End Section 8 -->
+
+    <!-- Footer Section -->
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="./img/logo.png" alt=""> <!--logo-->
+            <h4>Contact</h4>
+            <p><strong>Address:</strong>ljksadkljas</p>
+            <p><strong>Phone:</strong>+20081808787</p>
+            <p><strong>Hours:</strong>10:00 - 18:00</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-tiktok"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="./img/pay/#" alt="app store">
+                <img src="./img/pay/#" alt="google">
+            </div>
+            <p>Secured Payement Gateways</p>
+            <img src="./img/pay/#" alt="visa">
+        </div>
+    
+        <div class="copyright">
+            <p>@ 2022, ITI JS Project</p>
+        </div>
+    </footer>
     <!-- Footer Section -->
 
         <!-- Bootstrap JavaScript Libraries -->
