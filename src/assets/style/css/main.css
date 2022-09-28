@@ -1,0 +1,7 @@
+#name_error,
+#email_error,
+#password_error,
+#password-confirm_error {
+    position: absolute;
+    right: 10px;
+}

@@ -4,7 +4,6 @@
 var users = JSON.parse(localStorage.getItem('Users')) || [];
 var showMsg = document.createElement('div');
 
-// if user logged in show info in navbar
 function loadUserData() {
     var user = JSON.parse(sessionStorage.getItem('user'));
     if (user) {
@@ -14,7 +13,20 @@ function loadUserData() {
         document.getElementById('user_register').innerHTML = 'logout'
         document.getElementById('user_register').href = '/src/Pages/logout.html';
     }
-}
+    
+} // if user logged in show info in navbar
+
+
+function profileInfo() {
+    var user = JSON.parse(sessionStorage.getItem('user'));
+    document.getElementById('profile_username').value = user.username;
+    document.getElementById('profile_email').value = user.useremail;
+    document.getElementById('profile_logout').addEventListener('click', function () {
+        location.replace('/src/Pages/logout.html');
+    });
+
+} // user profile page
+
 
 // Registeration form
 var newUserName;
@@ -25,6 +37,106 @@ const registeration = document.getElementById('registeration');
 if (registeration) {
     registeration.addEventListener('submit', addNewUser);
 } // when user submit to register
+const regName = document.getElementById('name');
+const regEmail = document.getElementById('email');
+const regPass = document.getElementById('password');
+const regConfirm = document.getElementById('password-confirm');
+if (regName) {
+    regName.addEventListener('keyup', function () {
+        validateName(document.getElementById('name').value);
+    });
+} //name validation
+
+if (regEmail) {
+    regEmail.addEventListener('keyup', function () {
+        validateEmail(document.getElementById('email').value);
+    });
+} //email validation
+
+if (regPass) {
+    regPass.addEventListener('keyup', function () {
+        validatePass(document.getElementById('password').value);
+    });
+} //password validation
+
+if (regConfirm) {
+    regConfirm.addEventListener('keyup', function () {
+        let pass = document.getElementById('password').value;
+        let confirm = document.getElementById('password-confirm').value;
+        validateMatchPass(pass, confirm);
+    });
+} //password and confirm password validation
+
+function addNewUser(event) {
+    event.preventDefault();
+    // get form input values
+    newUserName = document.getElementById('name').value;
+    newUserEmail = document.getElementById('email').value;
+    newUserPass = document.getElementById('password').value;
+    confirmPass = document.getElementById('password-confirm').value;
+
+    // First validation on empty fields
+    let emptyResult = checkEmptyFields(newUserName, newUserEmail, newUserPass, confirmPass);
+    if (!emptyResult) {
+        return errRegDiv.prepend(showMsg);
+    }
+
+    // Second validation on inputs regex
+    let resultNameRegex = validateName(newUserName); //name input
+    if (!resultNameRegex) {
+        failedMsg('Name should be at least 3 characters');
+        return errRegDiv.prepend(showMsg);
+    }
+
+    let resultEmailRegex = validateEmail(newUserEmail); //email input
+    if (!resultEmailRegex) {
+        failedMsg('Please enter valid email');
+        return errRegDiv.prepend(showMsg);
+    }
+
+    let resultPassRegex = validatePass(newUserPass); //password input
+    if (!resultPassRegex) {
+        let errMsg = `<div>
+                            <p class="my-0">Password should contains:</p>
+                            <p class="my-0">Min 8 characters</p>
+                            <p class="my-0">Max 16 characters</p>
+                            <p class="my-0">Min 1 lowercase letter</p>
+                            <p class="my-0">Min 1 uppercase letter</p>
+                            <p class="my-0">Min 1 special character</p>
+                            <p class="my-0">Min 1 number</p>
+                      </div>`;
+        failedMsg(errMsg);
+        return errRegDiv.prepend(showMsg);
+    }
+
+    // Third validation on matching password and confirm password
+    if (newUserPass != confirmPass) {
+        failedMsg("Password and confirm password doesn't match");
+        return errRegDiv.prepend(showMsg);
+    }
+
+    // Fourth validation on if user email already exists or not
+    let resultUserExists = getUserInfo(newUserEmail);
+    if (resultUserExists) {
+        failedMsg("This email already exists");
+        return errRegDiv.prepend(showMsg);
+    }
+
+    // insert user information to local storage
+    let userData = {
+        username: newUserName,
+        useremail: newUserEmail,
+        userpassword: newUserPass
+    };
+    users.push(userData);
+    localStorage.setItem('Users', JSON.stringify(users)); // save user info to local storage
+    sessionStorage.setItem('user', JSON.stringify(userData)); // save user info to session
+    successMsg("Registeration Success,<br/> Please wait unitll redirect to home page");
+    errRegDiv.appendChild(showMsg);
+    // redirect to home page
+    return redirect('/index.html', 1500);
+} // end add new user function
+
 
 // login form
 var userEmail;
@@ -35,19 +147,6 @@ const loginForm = document.getElementById('loginForm');
 if (loginForm) {
     loginForm.addEventListener('submit', login);
 } // when user submit to login
-
-
-// user profile page
-function profileInfo() {
-    var user = JSON.parse(sessionStorage.getItem('user'));
-    document.getElementById('profile_username').value = user.username;
-    document.getElementById('profile_email').value = user.useremail;
-    document.getElementById('profile_logout').addEventListener('click', function(){
-        location.replace('/src/Pages/logout.html');
-    });
-}
-
-
 
 function login(event) {
     event.preventDefault();
@@ -87,68 +186,6 @@ function login(event) {
 
 } // end login function
 
-function addNewUser(event) {
-    event.preventDefault();
-    // get form input values
-    newUserName = document.getElementById('name').value;
-    newUserEmail = document.getElementById('email').value;
-    newUserPass = document.getElementById('password').value;
-    confirmPass = document.getElementById('password-confirm').value;
-
-    // First validation on empty fields
-    let emptyResult = checkEmptyFields(newUserName, newUserEmail, newUserPass, confirmPass);
-    if (!emptyResult) {
-        return errRegDiv.prepend(showMsg);
-    }
-
-    // Second validation on inputs regex
-    let resultNameRegex = validateName(newUserName); //name input
-    if (!resultNameRegex) {
-        failedMsg('Please enter valid name');
-        return errRegDiv.prepend(showMsg);
-    }
-
-    let resultEmailRegex = validateEmail(newUserEmail); //email input
-    if (!resultEmailRegex) {
-        failedMsg('Please enter valid email');
-        return errRegDiv.prepend(showMsg);
-    }
-
-    let resultPassRegex = validatePass(newUserPass); //password input
-    if (!resultPassRegex) {
-        let errMsg = "Password shouldn't be less than 8 characters and should contain small, capital letters and numbers";
-        failedMsg(errMsg);
-        return errRegDiv.prepend(showMsg);
-    }
-
-    // Third validation on matching password and confirm password
-    if (newUserPass != confirmPass) {
-        failedMsg("Password and confirm password doesn't match");
-        return errRegDiv.prepend(showMsg);
-    }
-
-    // Fourth validation on if user email already exists or not
-    let resultUserExists = getUserInfo(newUserEmail);
-    if (resultUserExists) {
-        failedMsg("This email already exists");
-        return errRegDiv.prepend(showMsg);
-    }
-
-    // insert user information to local storage
-    let userData = {
-        username: newUserName,
-        useremail: newUserEmail,
-        userpassword: newUserPass
-    };
-    users.push(userData);
-    localStorage.setItem('Users', JSON.stringify(users)); // save user info to local storage
-    sessionStorage.setItem('user', JSON.stringify(userData)); // save user info to session
-    successMsg("Registeration Success,<br/> Please wait unitll redirect to home page");
-    errRegDiv.appendChild(showMsg);
-    // redirect to home page
-    return redirect('/index.html', 1500);
-} // end add new user function
-
 function checkEmptyFields(...inputs) {
     for (let input of inputs) {
         if (input.length == 0) {
@@ -162,29 +199,59 @@ function checkEmptyFields(...inputs) {
 function validateName(name) {
     let nameRegex = /^([a-zA-Z ]){3,30}$/
     if (nameRegex.test(name)) {
+        document.getElementById('name_error').innerHTML = '<i class="fa-regular fa-circle-check text-success"></i>';
         return true;
     } else {
-        false
+        document.getElementById('name_error').innerHTML = '<i class="fa-regular fa-circle-xmark text-danger"></i>';
+        return false;
     }
 } // end name validation function
 
 function validateEmail(email) {
     let emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (emailRegex.test(email)) {
+        if (document.getElementById('email_error')) {
+            document.getElementById('email_error').innerHTML = '<i class="fa-regular fa-circle-check text-success"></i>';
+        }
         return true;
     } else {
-        false
+        if (document.getElementById('email_error')) {
+            document.getElementById('email_error').innerHTML = '<i class="fa-regular fa-circle-xmark text-danger"></i>';
+        }
+        return false;
     }
 } // end email validation function
 
+
 function validatePass(password) {
-    let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+    let passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,16}$/;
     if (passRegex.test(password)) {
+        if (document.getElementById('password_error')) {
+            document.getElementById('password_error').innerHTML = '<i class="fa-regular fa-circle-check text-success"></i>';
+        }
         return true;
     } else {
-        false
+        if (document.getElementById('password_error')) {
+            document.getElementById('password_error').innerHTML = '<i class="fa-regular fa-circle-xmark text-danger"></i>';
+        }
+        return false
     }
 } // end name password function
+
+
+function validateMatchPass(p, c) {
+    if (c.length == 0) {
+        document.getElementById('password-confirm_error').innerHTML = '<i class="fa-regular fa-circle-xmark text-danger"></i>';
+        return false;
+    }
+    if (p == c) {
+        document.getElementById('password-confirm_error').innerHTML = '<i class="fa-regular fa-circle-check text-success"></i>';
+        return true;
+    } else {
+        document.getElementById('password-confirm_error').innerHTML = '<i class="fa-regular fa-circle-xmark text-danger"></i>';
+        return false;
+    }
+} // end match password function
 
 function redirect(href, time) {
     setTimeout(() => {
