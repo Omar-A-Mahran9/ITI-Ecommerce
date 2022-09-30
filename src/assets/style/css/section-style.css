@@ -1,9 +1,9 @@
-
+/* General Rule Of HTML file */
 html {
     scroll-behavior: smooth;
-  }
+}
 
-/* About Us Section */
+/* Start About Us Section */
 
 .aboutus{
     padding-top: 500px;
@@ -34,9 +34,9 @@ html {
         font-size: 1.5rem;
     }
 }
+/* End About Us Section */
 
-
-/* Contact Us Section */
+/* Strat Contact Us Section */
 .contact{
     padding-top: 50px;
     padding-bottom: 50px;
@@ -147,4 +147,6 @@ margin-top: 90px;
     .contact .content .info address{
         margin-bottom: 30px;
     }
+
 }
+/* End Contact Us Section */
