@@ -5,3 +5,8 @@
     position: absolute;
     right: 10px;
 }
+.prouduct-cart{
+    position: absolute;
+    background-color: aqua;
+    right: 30px;
+}
