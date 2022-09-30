@@ -1,64 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./src/assets/style/css/section-style.css">
-    <title>temp</title>
-
-    <script src="/npm/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="/npm/node_modules/jquery/dist/jquery.min.map"></script>
-    <script src="/npm/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="/npm/node_modules/bootstrap/dist/js/bootstrap.js.map"></script>
-    
-    <link rel="stylesheet" href="/npm/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/npm/node_modules/bootstrap/dist/css/bootstrap.min.css.map">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="/src/assets/style/css/main.css">
 </head>
-<body>
-    <!-- Header Section -->
+
+<body onload="loadUserData()">
+    <!-- Header and Navbar -->
     <header>
         <div class="container">
-            <a href="#" class="logo">
-                <img src="./src/assets/images/logo2.png" alt="Logo">
-            </a>
-            <nav>
-                <ul>
-                    <li><a class = "active" href="#">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/index.html">Logo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index.html#products">Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index.html#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index.html#contact">Contact</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown me-3">
+                                <a id="user" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a id="user_login" class="dropdown-item" href="/src/Pages/login.html">Login</a>
+                                    </li>
+                                    <li><a id="user_register" class="dropdown-item"
+                                            href="/src/Pages/register.html">Register</a>
+                                    </li>
+                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/src/Pages/cart.html">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         </div>
     </header>
-        <!-- Main Section -->
-        <!-- <section>
-            <main>
-                <div class="container">
-                    <h1>E-commerce Website </h1>
-                    <div class="products">
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                        <h2>Products Section</h2>
-                    </div>
-                </div>
-            </main>
-        </section> -->
-
-
+    <!-- Header and Navbar -->
     
-    <div class="aboutus">
+
+
+
+
+
+    <!-- About Us Section -->
+    <div class="aboutus" id="about">
         <div class="container">
             <div class="main-heading">
                 <h2>About Us</h2>
@@ -66,9 +85,11 @@
             </div>
         </div>
     </div>
+    <!-- About Us Section -->
+
 
     <!-- Contact Us Section -->
-    <div class="contact">
+    <div class="contact" id="contact">
         <div class="container">
             <div class="main-heading">
                 <h2>Contact Us</h2>
@@ -95,10 +116,22 @@
             </div>
         </div>
     </div>
-
+    <!-- Contact Us Section -->
 
     <!-- Footer Section -->
 
+    <!-- Footer Section -->
 
-</body>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+            </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+            integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+            </script>
+        <script src="/src/assets/javascript/main.js"></script>
+
+    </body>
+    
 </html>
