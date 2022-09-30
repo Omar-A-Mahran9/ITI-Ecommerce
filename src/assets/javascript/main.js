@@ -239,18 +239,58 @@ document.addEventListener("DOMContentLoaded", function(){
   });
 
 let carts = document.querySelectorAll(".add-cart");
+let products = [
+    {
+        name : ' Grey Tshirt ' ,
+        tag : ' greytshirt ' ,
+        price : 15 ,
+        inCart : 0
+    } ,
+    {
+        name : " Grey Hoddie " ,
+        tag : " greyhoddie " ,
+        price : 20 ,
+        inCart : 0
+    } ,
+    {
+        name : " Black Tshirt " ,
+        tag : " blacktshirt " ,
+        price : 15 ,
+        inCart : 0
+    } ,
+    {
+        name : " Black Hoddie " ,
+        tag : " blackhoddie " ,
+        price : 20 ,
+        inCart : 0
+    } 
+]
 
+console.log("runningnad");
 for(let i=0; i< carts.length; i++){
-    console.log("loop "+i);
-}
-
-function activeSectionHighlight() {
-    window.addEventListener("scroll", () => {
-        sections.forEach((y, i) => {
-            const rectBoundary = y.getBoundingClientRect();
-            if (rectBoundary.top > -5 && rectBoundary.top < 300) {
-                const secnav = y.getAttribute("data-nav"); 
-            }
-        })
+    carts[i].addEventListener("click",()=>{
+        console.log("added to cart "+i);
+        cartNumbers()
     })
 }
+
+function cartNumbers ( ) {
+    let productNumbers = localStorage.getItem ('cartNumbers') ;
+    productNumbers = parseInt ( productNumbers ) ;
+    if (productNumbers) {
+        localStorage.setItem ('cartNumbers' , productNumbers + 1 ) ;
+    }else{
+        localStorage.setItem ('cartNumbers' , 1 ) ;
+    }
+
+}
+
+
+// const element = document.getElementById(".contact-container");
+// const navabout = document.getElementById("#nav-about");
+
+// navabout.addEventListener("click", () => {
+//     element.scrollIntoView({
+//         behavior: "smooth"
+//     });
+// })

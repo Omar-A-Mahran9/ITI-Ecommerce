@@ -855,7 +855,7 @@ footer .copyright{
     padding-bottom: 0px;
 }
 
-.contact-container h2{
+.contact-container h2, #about-us{
     text-align: center;
     padding-bottom: 15px;
 }
