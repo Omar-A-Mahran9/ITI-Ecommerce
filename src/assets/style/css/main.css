@@ -85,6 +85,12 @@ body{
     left: 0; */
 }
 /* 
+.nav-cart{
+    border: 0.25px solid black;
+}
+
+.nav-cart i */
+/* 
 #navbar{
     display: flex;
     align-items: center;

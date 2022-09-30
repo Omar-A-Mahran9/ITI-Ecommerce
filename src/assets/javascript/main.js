@@ -266,24 +266,67 @@ let products = [
     } 
 ]
 
-console.log("runningnad");
+console.log(products[1]);
+// console.log("runningnad");
 for(let i=0; i< carts.length; i++){
     carts[i].addEventListener("click",()=>{
         console.log("added to cart "+i);
-        cartNumbers()
+        cartNumbers(products[i])
+        totalCost(products[i])
     })
 }
 
-function cartNumbers ( ) {
-    let productNumbers = localStorage.getItem ('cartNumbers') ;
+function onLoadCartNumbers () {
+    let productNumbers = localStorage.getItem ("cartNumbers") ;
+    if ( productNumbers ) {
+        document.querySelector (".nav-cart span").textContent = productNumbers ;
+   }
+}
+function cartNumbers (product) {
+    console.log("The prduct clicked is",product);
+    let productNumbers = localStorage.getItem ("cartNumbers") ;
     productNumbers = parseInt ( productNumbers ) ;
     if (productNumbers) {
-        localStorage.setItem ('cartNumbers' , productNumbers + 1 ) ;
+        localStorage.setItem ("cartNumbers", productNumbers + 1 );
+        document.querySelector(".nav-cart span").textContent = productNumbers + 1;
     }else{
-        localStorage.setItem ('cartNumbers' , 1 ) ;
+        localStorage.setItem ("cartNumbers", 1 );
+        document.querySelector(".nav-cart span").textContent =  1;
     }
-
+    setItems(product);
 }
+
+function setItems(product){
+    // console.log("Inside of SetItems function");
+    // console.log("My product is ", product);
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+    // console.log("My cartItems are",cartItems);
+    if(cartItems != null){
+        // cartItems
+        if(cartItems[product.tag] == undefined){
+            cartItems = {
+                ...cartItems,
+                [product.tag]: product
+            }
+        }
+        cartItems[product.tag].inCart += 1;
+    }else{
+        product.inCart = 1;
+        cartItems = {
+            [product.tag]: product
+        }   
+    } 
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
+}
+
+function totalCost(product){
+    console.log("The product price is ",product.price);
+}
+
+
+onLoadCartNumbers();
+
 
 
 // const element = document.getElementById(".contact-container");
