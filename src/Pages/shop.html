@@ -22,25 +22,25 @@
             <div class="container">
                 <nav class="navbar navbar-expand-lg" id="navbar_top">
                     <div class="container-fluid">
-                        <a class="navbar-brand" href="/ITI-Ecommerce/index.html">Logo</a>
+                        <a class="navbar-brand" href="./index.html">Logo</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 section-search">
                                 <li class="nav-item">
-                                    <a class="nav-link" aria-current="page" href="/ITI-Ecommerce/index.html">Home</a>
+                                    <a class="nav-link" aria-current="page" href="./index.html">Home</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="#">Products</a>
+                                    <a class="nav-link active" href="./src/Pages/shop.html">Products</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/index.html#about">About</a>
+                                    <a class="nav-link" id="nav-about">About</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/index.html#contact">Contact</a>
+                                    <a class="nav-link" id="nav-contact">Contact</a>
                                 </li>
                             </ul>
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -57,8 +57,8 @@
                                         </li>
                                     </ul>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/src/Pages/cart.html">
-                                        <i class="fa-solid fa-cart-shopping"></i>
+                                    <a class="nav-link nav-cart" href="/src/Pages/cart.html">
+                                        <i class="fa-solid fa-cart-shopping"></i><span>0</span>
                                     </a>
                                 </li>
                                 </li>
@@ -77,10 +77,12 @@
         </section>
         <!-- End Section 1 -->      
 
-        <!-- Section 2 -->        
+        <!-- Section 3 -->        
         <section class="section-p1" id="product1">
+            <h2>Featured Products</h2>
+            <p>Summer Collection New Modern Design</p>
             <div class="pro-container">
-                <div class="pro" onclick="window.location.herf='singleProduct.html';">
+                <div class="pro">
                     <img src="./img/#" alt="">
                     <div class="des">
                         <span>adidas</span>
@@ -94,7 +96,7 @@
                         </div>
                         <h4>$78</h4>
                     </div>
-                    <a href="" class="add-cart"><i class="fa-light fa-cart-shopping cart"></i></a>
+                    <a class="add-cart cart1" href="#"><i class="fa-light fa-cart-shopping cart"></i></a>
                 </div>
                 <div class="pro">
                     <img src="./img/#" alt="">
@@ -110,7 +112,7 @@
                         </div>
                         <h4>$78</h4>
                     </div>
-                    <a href="" class="add-cart"><i class="fa-light fa-cart-shopping cart"></i></a>
+                    <a class="add-cart cart2" href="#"><i class="fa-light fa-cart-shopping cart"></i></a>
                 </div>
                 <div class="pro">
                     <img src="./img/#" alt="">
@@ -126,7 +128,7 @@
                         </div>
                         <h4>$78</h4>
                     </div>
-                    <a href="" class="add-cart"><i class="fa-light fa-cart-shopping cart"></i></a>
+                    <a class="add-cart cart3" href="#"><i class="fa-light fa-cart-shopping cart"></i></a>
                 </div>
                 <div class="pro">
                     <img src="./img/#" alt="">
@@ -142,7 +144,7 @@
                         </div>
                         <h4>$78</h4>
                     </div>
-                    <a href="" class="add-cart"><i class="fa-light fa-cart-shopping cart"></i></a>
+                    <a class="add-cart cart4"href="#"><i class="fa-light fa-cart-shopping cart"></i></a>
                 </div>
                 <div class="pro">
                     <img src="./img/#" alt="">
@@ -158,7 +160,7 @@
                         </div>
                         <h4>$78</h4>
                     </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+                    <a class="add-cart cart5" href="#"><i class="fa-light fa-cart-shopping cart"></i></a>
                 </div>
                 <div class="pro">
                     <img src="./img/#" alt="">
@@ -174,7 +176,7 @@
                         </div>
                         <h4>$78</h4>
                     </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+                    <a class="add-cart cart6" href="#"><i class="fa-light fa-cart-shopping cart"></i></a>
                 </div>
                 <div class="pro">
                     <img src="./img/#" alt="">
@@ -190,7 +192,7 @@
                         </div>
                         <h4>$78</h4>
                     </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+                    <a class="add-cart cart7" href="#"><i class="fa-light fa-cart-shopping cart"></i></a>
                 </div>
                 <div class="pro">
                     <img src="./img/#" alt="">
@@ -206,139 +208,11 @@
                         </div>
                         <h4>$78</h4>
                     </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="./img/#" alt="">
-                    <div class="des">
-                        <span>adidas</span>
-                        <h5>Cartoon T-shirt</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="./img/#" alt="">
-                    <div class="des">
-                        <span>adidas</span>
-                        <h5>Cartoon T-shirt</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="./img/#" alt="">
-                    <div class="des">
-                        <span>adidas</span>
-                        <h5>Cartoon T-shirt</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="./img/#" alt="">
-                    <div class="des">
-                        <span>adidas</span>
-                        <h5>Cartoon T-shirt</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="./img/#" alt="">
-                    <div class="des">
-                        <span>adidas</span>
-                        <h5>Cartoon T-shirt</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="./img/#" alt="">
-                    <div class="des">
-                        <span>adidas</span>
-                        <h5>Cartoon T-shirt</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="./img/#" alt="">
-                    <div class="des">
-                        <span>adidas</span>
-                        <h5>Cartoon T-shirt</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
-                </div>
-                <div class="pro">
-                    <img src="./img/#" alt="">
-                    <div class="des">
-                        <span>adidas</span>
-                        <h5>Cartoon T-shirt</h5>
-                        <div class="star">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <h4>$78</h4>
-                    </div>
-                    <a href=""><i class="fa-light fa-cart-shopping cart"></i></a>
+                    <a class="add-cart cart8" href="#"><i class="fa-light fa-cart-shopping cart"></i></a>
                 </div>
             </div>
         </section>
-        <!-- End Section 2 -->   
+        <!-- End Section 3 -->  
 
         <section class="section-p1" id="pagination">
             <a href="#">1</a>
