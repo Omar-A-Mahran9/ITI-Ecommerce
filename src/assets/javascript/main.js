@@ -225,18 +225,29 @@ function getUserInfo(email) {
 
 /* /////////////////////////////// Home, Shop and Single Products Pages/////////////////////////////// */
 
-document.addEventListener("DOMContentLoaded", function(){
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-          document.getElementById('navbar_top').classList.add('fixed-top');
-          navbar_height = document.querySelector('.navbar').offsetHeight;
-          document.body.style.paddingTop = navbar_height + 'px';
-        } else {
-          document.getElementById('navbar_top').classList.remove('fixed-top');
-          document.body.style.paddingTop = '0';
-        } 
-    });
-  });
+// document.addEventListener("DOMContentLoaded", function(){
+//     window.addEventListener('scroll', function() {
+//         if (window.scrollY > 50) {
+//           document.getElementById('navbar_top').classList.add('fixed-top');
+//           navbar_height = document.querySelector('.navbar').offsetHeight;
+//           document.body.style.paddingTop = navbar_height + 'px';
+//         } else {
+//           document.getElementById('navbar_top').classList.remove('fixed-top');
+//           document.body.style.paddingTop = '0';
+//         } 
+//     });
+//   });
+
+
+// let nav_about = document.getElementById("#navabout");
+
+// nav_about.addEventListener("click",function(e){
+//     e.preventDefault();
+//     document.getElementById("#about-us").scrollIntoView({
+//         behavior: "smooth"
+//     });
+// });
+
 
 let carts = document.querySelectorAll(".add-cart");
 let products = [
@@ -266,7 +277,7 @@ let products = [
     } 
 ]
 
-console.log(products[1]);
+// console.log(products[1]);
 // console.log("runningnad");
 for(let i=0; i< carts.length; i++){
     carts[i].addEventListener("click",()=>{
@@ -278,7 +289,7 @@ for(let i=0; i< carts.length; i++){
 
 function onLoadCartNumbers () {
     let productNumbers = localStorage.getItem ("cartNumbers") ;
-    if ( productNumbers ) {
+    if (productNumbers) {
         document.querySelector (".nav-cart span").textContent = productNumbers ;
    }
 }
@@ -333,7 +344,10 @@ function totalCost(product){
     }
 }
 
-
+// setInterval(()=>{
+//     onLoadCartNumbers();
+//     carts = document.querySelectorAll(".add-cart");
+// }, 5000);
 onLoadCartNumbers();
 
 
