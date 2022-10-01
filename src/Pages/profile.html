@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Login</title>
+  <title>My profile</title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <!-- Bootstrap CSS v5.2.0-beta1 -->
@@ -23,59 +23,64 @@
 
 
 <body onload="loadUserData(), profileInfo()">
-  <!-- Header and Navbar -->
-  <header>
-    <div class="container">
-      <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="/index.html">Logo</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/index.html#products">Products</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/index.html#about">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/index.html#contact">Contact</a>
-              </li>
-            </ul>
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-              <li class="nav-item dropdown me-3">
-                <a id="user" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                  aria-expanded="false">
-                  <i class="fa-solid fa-user"></i>
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a id="user_login" class="dropdown-item" href="/src/Pages/login.html">Login</a></li>
-                  <li><a id="user_register" class="dropdown-item" href="/src/Pages/register.html">Register</a></li>
-                </ul>
-              <li class="nav-item">
-                <a class="nav-link" href="/src/Pages/cart.html">
-                  <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-              </li>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
+  
+    <!-- Start Header and Navbar -->
+    <header>
+      <div class="container">
+          <nav class="navbar navbar-expand-lg">
+              <div class="container-fluid">
+                  <a class="navbar-brand" href="/index.html"><img src="/src/assets/images/logo.png" width="40" alt="logo"></a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                      aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                          <li class="nav-item">
+                              <a class="nav-link" href="/index.html">Home</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="/index.html#products">Products</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="/index.html#about">About</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="/index.html#contact">Contact</a>
+                          </li>
+                      </ul>
+                      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                          <li class="nav-item dropdown me-3">
+                              <a id="user" class="nav-link dropdown-toggle" href="#" role="button"
+                                  data-bs-toggle="dropdown" aria-expanded="false">
+                                  <i class="fa-solid fa-user"></i>
+                              </a>
+                              <ul class="dropdown-menu">
+                                  <li><a id="user_login" class="dropdown-item" href="/src/Pages/login.html">Login</a>
+                                  </li>
+                                  <li><a id="user_register" class="dropdown-item"
+                                          href="/src/Pages/register.html">Register</a>
+                                  </li>
+                              </ul>
+                          <li class="nav-item">
+                              <a class="nav-link" href="/src/Pages/cart.html">
+                                  <i class="fa-solid fa-cart-shopping"></i>
+                              </a>
+                          </li>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </nav>
+      </div>
   </header>
-  <!-- Header and Navbar -->
 
+  <!-- End Header and Navbar -->
 
-  <main class="mt-5">
+  <!-- Start Profile -->
+  
+  <main class="profile">
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
@@ -83,9 +88,15 @@
         </div>
           <section class="w-50 mt-5 mx-auto">
               <fieldset disabled>
-                <div class="mb-3">
-                  <label for="profile_username" class="form-label">Name</label>
-                  <input type="text" id="profile_username" class="form-control" placeholder="Name">
+                <div class="row mb-3">
+                  <div class="col-md-6 mb-3 mb-lg-0">
+                    <label for="profile_username" class="form-label">First Name</label>
+                    <input type="text" id="profile_userFname" class="form-control" placeholder="First Name">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="profile_username" class="form-label">Last Name</label>
+                    <input type="text" id="profile_userLname" class="form-control" placeholder="Last Name">
+                  </div>
                 </div>
     
                 <div class="mb-3">
@@ -103,6 +114,9 @@
       </div>
     </div>
   </main>
+
+  
+  <!-- End Profile -->
 
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
