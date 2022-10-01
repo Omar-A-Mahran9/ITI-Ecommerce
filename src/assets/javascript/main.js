@@ -281,7 +281,7 @@ let products = [
 // console.log("runningnad");
 for(let i=0; i< carts.length; i++){
     carts[i].addEventListener("click",()=>{
-        console.log("added to cart "+i);
+        // console.log("added to cart "+i);
         cartNumbers(products[i])
         totalCost(products[i])
     })
