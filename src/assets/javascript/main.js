@@ -283,7 +283,7 @@ function onLoadCartNumbers () {
    }
 }
 function cartNumbers (product) {
-    console.log("The prduct clicked is",product);
+    // console.log("The prduct clicked is",product);
     let productNumbers = localStorage.getItem ("cartNumbers") ;
     productNumbers = parseInt ( productNumbers ) ;
     if (productNumbers) {
@@ -323,8 +323,8 @@ function setItems(product){
 function totalCost(product){
     // console.log("The product price is ",product.price);
     let cartCost = localStorage.getItem("totalCost") ;
-    console.log ( " My cartCost is " , cartCost ) ;
-    console.log ( typeof cartCost ) ;
+    // console.log ( " My cartCost is " , cartCost ) ;
+    // console.log ( typeof cartCost ) ;
     if (cartCost != null) {
         cartCost = parseInt ( cartCost ) ;
         localStorage.setItem ( "totalCost" , cartCost + product.price ) ;
