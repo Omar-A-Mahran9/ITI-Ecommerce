@@ -334,10 +334,50 @@ req.onreadystatechange = function () {
 /* /////////////////////////////// PRODUCTS /////////////////////////////// */
 
 /* /////////////////////////////// CART /////////////////////////////// */
+
 let cardProductDom = document.querySelector(".prouduct-cart");
 var counter = 0;
 let items = [];
+let storage = JSON.parse(localStorage.getItem("products"));
 
+if (storage) {
+  items = storage;
+} else {
+  items = [];
+}
+//print values on popup cart
+let popup = storage.map((elm) => {
+  let designcart = `
+  <div class="card mb-2 id=${elm.id}">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div>
+              <img
+                src="${elm.images[0]}"
+                class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+            </div>
+            <div class="ms-3">
+              <h6>${elm.title}</h6>
+              <p class="small mb-0">256GB, Navy Blue</p>
+            </div>
+          </div>
+          <div class="d-flex flex-row align-items-center">
+            <div style="width: 50px;">
+              <h5 class="fw-normal mb-0">2</h5>
+            </div>
+            <div style="width: 80px;">
+              <h5 class="mb-0">${elm.price}</h5>
+            </div>
+            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>    
+  `;
+
+  cardProductDom.innerHTML += designcart;
+});
 function clickOnCartButton(id) {
   fetch("https://dummyjson.com/products")
     .then((res) => res.json())
@@ -348,42 +388,41 @@ function clickOnCartButton(id) {
       localStorage.setItem("products", JSON.stringify(items));
 
       let designcart = `
-<div class="card mb-2 id=${truiTem.id}">
-    <div class="card-body">
-      <div class="d-flex justify-content-between">
-        <div class="d-flex flex-row align-items-center">
-          <div>
-            <img
-              src="${truiTem.images[0]}"
-              class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+  <div class="card mb-2 id=${truiTem.id}">
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-row align-items-center">
+            <div>
+              <img
+                src="${truiTem.images[0]}"
+                class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+            </div>
+            <div class="ms-3">
+              <h6>${truiTem.title}</h6>
+              <p class="small mb-0">256GB, Navy Blue</p>
+            </div>
           </div>
-          <div class="ms-3">
-            <h6>${truiTem.title}</h6>
-            <p class="small mb-0">256GB, Navy Blue</p>
+          <div class="d-flex flex-row align-items-center">
+            <div style="width: 50px;">
+              <h5 class="fw-normal mb-0">2</h5>
+            </div>
+            <div style="width: 80px;">
+              <h5 class="mb-0">${truiTem.price}</h5>
+            </div>
+            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
           </div>
-        </div>
-        <div class="d-flex flex-row align-items-center">
-          <div style="width: 50px;">
-            <h5 class="fw-normal mb-0">2</h5>
-          </div>
-          <div style="width: 80px;">
-            <h5 class="mb-0">${truiTem.price}</h5>
-          </div>
-          <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
         </div>
       </div>
-    </div>
-  </div>    
-`;
-      //console.log(designcart)
-      counter++;
+    </div>    
+  `;
       cardProductDom.innerHTML += designcart;
-      notify.innerHTML = counter;
     });
-
-  //console.log(id);
+  notify.innerHTML = items.length + 1;
 }
 
+notify.innerHTML = items.length;
+
+//pop up for cart button
 function menu() {
   var user = JSON.parse(sessionStorage.getItem("user"));
   if (!user) {
@@ -400,20 +439,15 @@ function menu() {
   }
 }
 
-//cartPage();
-let localtorage = localStorage.getItem("products");
 let locationINcart = document.querySelector(".container .card .productss");
-//console.log(localtorage)
-if (localtorage) {
+
+if (storage) {
   cartPage();
 } else {
-  locationINcart.innerHTML = `<div class="text-center mb-3 fw-bold ">----NO ITEM IN CART----`;
+  ``;
 }
 function cartPage() {
-  let convertToObject = JSON.parse(localtorage);
-  console.log(convertToObject);
-
-  let item = convertToObject.map((elm) => {
+  let item = storage.map((elm) => {
     let produ = `<div class="card mb-3">
 <div class="card-body">
   <div class="d-flex justify-content-between">
@@ -435,7 +469,7 @@ function cartPage() {
       <div style="width: 80px;">
         <h5 class="mb-0">${elm.price}</h5>
       </div>
-      <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+      <a href="#!" style="color: #cecece;" onclick='removeItemfromCart(${elm.id})'><i class="fas fa-trash-alt"></i></a>
     </div>
   </div>
 </div>
@@ -443,8 +477,19 @@ function cartPage() {
 
     locationINcart.innerHTML += produ;
   });
-  console.log(item);
 }
+//removeItemfromCart();
+function removeItemfromCart(id) {
+  if (storage) {
+    console.log(storage);
+    let iitemes = storage.filter((elm) => elm.id !== id);
+    console.log(iitemes);
+    localStorage.setItem("products", JSON.stringify(iitemes));
+  } else {
+  }
+}
+let countOfitemInCart = document.querySelector(".countItem");
+countOfitemInCart.innerHTML = `You have <span>${items.length}</span> items in your cart`;
 
 //let getcartbutton=document.getElementById('addtocart');
 //getcartbutton.addEventListener('click',function (){console.log("Hello")})
