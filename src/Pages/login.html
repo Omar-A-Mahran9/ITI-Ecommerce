@@ -12,6 +12,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
     integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <link rel="stylesheet" href="/src/assets/style/css/main.css">
+  <style>
+    body {
+      background-color: #232F3E;
+    }
+  </style>
   <script>
     // authorization
     var user = JSON.parse(sessionStorage.getItem('user'));
@@ -23,12 +28,13 @@
 
 
 <body onload="loadUserData()">
-  <!-- Header and Navbar -->
+
+  <!-- Start Header and Navbar -->
   <header>
     <div class="container">
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/index.html">Logo</a>
+          <a class="navbar-brand" href="/index.html"><img src="/src/assets/images/logo.png" width="40" alt="logo"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -37,7 +43,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                <a class="nav-link" href="/index.html">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/index.html#products">Products</a>
@@ -50,15 +56,16 @@
               </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
               <li class="nav-item dropdown me-3">
                 <a id="user" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                   aria-expanded="false">
                   <i class="fa-solid fa-user"></i>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a id="user_login" class="dropdown-item" href="/src/Pages/login.html">Login</a></li>
-                  <li><a id="user_register" class="dropdown-item" href="/src/Pages/register.html">Register</a></li>
+                  <li><a id="user_login" class="dropdown-item" href="/src/Pages/login.html">Login</a>
+                  </li>
+                  <li><a id="user_register" class="dropdown-item" href="/src/Pages/register.html">Register</a>
+                  </li>
                 </ul>
               <li class="nav-item">
                 <a class="nav-link" href="/src/Pages/cart.html">
@@ -72,46 +79,48 @@
       </nav>
     </div>
   </header>
-  <!-- Header and Navbar -->
 
+  <!-- End Header and Navbar -->
 
   <!-- Login Content -->
-  <div class="container">
-    <div class="row">
-      <div class="col-12 mt-5">
-        <div class="col-12 mt-3 text-center text-uppercase">
-          <h2>Login</h2>
-        </div>
-      </div>
-
-      <main class="row">
-        <div id="loginErrors" class="col-lg-4 col-md-6 col-sm-8 mx-auto bg-white py-3 mb-4">
-          <div class="col-12">
-            <form id="loginForm">
-              <div class="mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="text" id="email" class="form-control">
-              </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" class="form-control">
-              </div>
-              <div class="mb-3">
-                <button id="login" type="submit" class="btn btn-outline-success">Login</button>
-              </div>
-              <div class="text-center">
-                <p>Don't have an account? <a href="/src/Pages/register.html">Register</a></p>
-              </div>
-            </form>
+  <section class="login">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mt-5">
+          <div class="col-12 mt-3 text-center text-uppercase">
+            <h2>Login</h2>
           </div>
         </div>
-      </main>
+
+        <main class="row">
+          <div id="loginErrors" class="col-lg-4 col-md-6 col-sm-8 mx-auto py-3 mb-4">
+            <div class="col-12">
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="text" id="email" class="form-control">
+                </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" id="password" class="form-control">
+                </div>
+                <div class="mt-4 mb-3">
+                  <button id="login" type="submit" class="btn btn-outline-success">Login</button>
+                </div>
+                <div class="text-center">
+                  <p>Don't have an account? <a href="/src/Pages/register.html">Register</a></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
     </div>
-  </div>
+  </section>
   <!-- Login Content -->
 
-    <!-- Bootstrap JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
     integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
     </script>
 

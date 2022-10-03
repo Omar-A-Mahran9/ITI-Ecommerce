@@ -80,7 +80,7 @@ if (regConfirm) {
 function addNewUser(event) {
     event.preventDefault();
     // get form input values
-    newUserFName = document.getElementById('fisrt_name').value;
+    newUserFName = document.getElementById('first_name').value;
     newUserLName = document.getElementById('last_name').value;
     newUserEmail = document.getElementById('email').value;
     newUserPass = document.getElementById('password').value;
@@ -344,291 +344,480 @@ if (upBtn) {
 /* /////////////////////////////// End Scroll Up Button /////////////////////////////// */
 
 
+/* /////////////////////////////// Home, Shop and Single Products Pages/////////////////////////////// */
 
-/* /////////////////////////////// PRODUCTS /////////////////////////////// */
+let products = [
+    {
+        name : ' Flowery shirt ' ,
+        tag : ' floweryshirt ' ,
+        price : 15 ,
+        brand : "H&M",
+        src : "/src/assets/images/products/f3.jpg",
+        categ : "men",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
+    {
+        name : ' ColorFul Shirt ' ,
+        tag : ' colorfulshirt ' ,
+        price : 20 ,
+        brand : "zara",
+        src : "/src/assets/images/products/f1.jpg",
+        categ : "men",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
+    {
+        name : ' Cats Blouse ' ,
+        tag : ' catsblouse ' ,
+        price : 20 ,
+        brand : "H&M",
+        src : "/src/assets/images/products/f8.jpg",
+        categ : "women",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
+    {
+        name : ' White Flowers Shirt ' ,
+        tag : ' whiteflowersshirt ' ,
+        price : 15 ,
+        brand : "zara",
+        src : "/src/assets/images/products/f2.jpg",
+        categ : "men",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
+    {
+        name : ' Baggy Trousers ' ,
+        tag : ' baggytrousers ' ,
+        price : 15 ,
+        brand : "H&M",
+        src : "/src/assets/images/products/f7.jpg",
+        categ : "women",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
+    {
+        name : ' White Pink Shirt ' ,
+        tag : ' whitepinkshirt ' ,
+        price : 15 ,
+        brand : "zara",
+        src : "/src/assets/images/products/f4.jpg",
+        categ : "men",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
+    {
+        name : ' Navy Blue Shirt ' ,
+        tag : ' navyblueshirt ' ,
+        price : 20 ,
+        brand : "zara",
+        src : "/src/assets/images/products/f5.jpg",
+        categ : "men",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
+    {
+        name : ' Orange Blue Shirt ' ,
+        tag : ' orangeblueshirt ' ,
+        price : 15 ,
+        brand : "H&M",
+        src : "/src/assets/images/products/f6.jpg",
+        categ : "men",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
+    {
+        name : ' Sky Blue Shirt ' ,
+        tag : ' skyblueshirt ' ,
+        price : 25 ,
+        brand : "H&M",
+        src : "/src/assets/images/products/n1.jpg",
+        categ : "men",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
+    {
+        name : ' Blue shirt ' ,
+        tag : ' blueshirt ' ,
+        price : 20 ,
+        brand : "H&M",
+        src : "/src/assets/images/products/n2.jpg",
+        categ : "men",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
+    {
+        name : ' White shirt ' ,
+        tag : ' whiteshirt ' ,
+        price : 30 ,
+        brand : "zara",
+        src : "/src/assets/images/products/n3.jpg",
+        categ : "men",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } ,
 
-let pro = document.querySelector("#product .container .row");
-let notify = document.querySelector(".nav-item .nav-link .noti");
-let product=document.querySelector("#pPRODUCT")
+    {
+        name : ' Green shirt ' ,
+        tag : ' greenshirt ' ,
+        price : 15 ,
+        brand : "zara",
+        src : "/src/assets/images/products/n4.jpg",
+        categ : "men",
+        descr : "gggggggggggggg",
+        inCart : 0
+    } 
+]
+
+const procontainer =  document.querySelector(".pro-container");
+const procontainerNA =  document.querySelector(".pro-containerNA");
+
+function productsCreate(product,x,container){
+    // event.preventDefault()
+    const newDiv= document.createElement("div");
+    newDiv.classList.add("pro");
+    // newDiv.classList.add("all"); tttttttttttttttttttttttttttttttttttttttttttttt
+    newDiv.classList.add(product.categ);
 
 
+    var img= document.createElement("img");
+    img.src = product.src;
+    newDiv.appendChild(img);
 
-let req = new XMLHttpRequest();
-req.open("GET", "https://dummyjson.com/products");
-req.send();
+    const div2 = document.createElement("div");
+    div2.classList.add("des");
+    var span = document.createElement("span");
+    var spanText = document.createTextNode(product.brand);
+    span.appendChild(spanText);
+    div2.appendChild(span);
 
-//let jsfromjson = JSON.parse(req.responseText);
-req.onreadystatechange = function () {
-  if ((this.readyState === 4) & (this.status === 200)) {
-    let jsfromjson = JSON.parse(this.responseText);
-    let prouducts = jsfromjson.products;
-    function CreatProuduct() {
-      let p = prouducts.map((elm) => {
-        let des = `<div class="card" style="width: 15rem;">
-                <a href="/src/Pages/prouduct.html"onclick="ProuductSelect(${elm.id})">
-                <img src="${elm.images[0]}" class="card-img-top" alt="...">
-                <div class="card-body">
-                <h4 class="card-title">${elm.title}</h4>
-                <h5 class="card-title">${elm.category}</h5>
-                <p class="card-text">${elm.description}</p>
-                <a id="addtocart" class="btn btn-primary" onclick="clickOnCartButton(${elm.id})" >ADD TO CART</a>
-                </div>
-                </a>
-                </div>`;
-        return des;
-      });
-<<<<<<< HEAD
-      if(pro){
-        pro.innerHTML = p.join(" ");
+    var h5 = document.createElement("h5");
+    var h5Text = document.createTextNode(product.name);
+    h5.appendChild(h5Text);
+    div2.appendChild(h5);
 
-=======
-      if (pro) {
-        pro.innerHTML = p.join(" ");
->>>>>>> 751f6efdf74fc578ef8f9d427458c87adf06362c
-      }
+
+    const div3 = document.createElement("div");
+    div3.classList.add("star");
+    for(let i=0; i<5;i++){
+        const iStar = document.createElement("i");
+        // iStar.classList.add("fas fa-star");
+        iStar.classList.add("fas");
+        iStar.classList.add("fa-star");
+        div3.appendChild(iStar);
     }
-    CreatProuduct();
-  }
-};
+    div2.appendChild(div3);
 
-function ProuductSelect(id){
-  //location.replace('/src/Pages/prouduct.html')
-  let jsfromjson = JSON.parse(req.responseText);
-  let prouducts = jsfromjson.products;
-  //console.log(prouducts)
-  let arrr=prouducts.filter((elm)=>{
-    return elm.id===id
-  });
-  localStorage.setItem('details',JSON.stringify(arrr))
- // console.log(arrfil);
+    var h4 = document.createElement("h4");
+    var h4Text = document.createTextNode("$"+product.price);
+    h4.appendChild(h4Text);
+    div2.appendChild(h4);
+
+    newDiv.appendChild(div2);
+
+    var a = document.createElement("a");
+    // a.classList.add("add-cart cart1");
+    a.classList.add("add-cart");
+    a.classList.add("cart"+x);
+
+    const iCart = document.createElement("i");
+    // iCart.classList.add("fa-light fa-cart-shopping cart");
+    iCart.classList.add("fa-solid");
+    iCart.classList.add("fa-cart-plus");
+    // <i class="fa-solid fa-cart-plus"></i>
+    a.appendChild(iCart);
+    newDiv.appendChild(a);
+
+    // const desc= document.createElement("div");
+    // desc.classList.add("pop-desc");
+    // var pr = document.createElement("p");
+    // var prText = document.createTextNode(product.descr);
+    // pr.appendChild(prText);
+    // pr.classList.add("p"+(x-1));
+    // newDiv.appendChild(pr);
+
+
+    container.appendChild(newDiv);
 }
 
-if(product){
-  desOnProuduct();
+function productsload(productS,x){
+    if(x == 1){
+        for(let i=0 ;i < productS.length;i++){
+            productsCreate(productS[i],(i+1),procontainerNA);
+        }
+        productpop = document.querySelectorAll(".pro-containerNA .pro img");
+        carts = document.querySelectorAll(".add-cart");
+        // console.log(productpop.length);
+    }else if(x == 2){
+        for(let i=0 ;i < 4;i++){
+            productsCreate(productS[i],(i+1),procontainer);
+        }
+    }
+    // carts = document.querySelectorAll(".add-cart");
 }
-function desOnProuduct(){
-  let arrfilq=localStorage.getItem('details')
-  let arrfil=JSON.parse(arrfilq)[0];  
-  let desc=`<div class="container mt-5 mb-5">
-  <div class="row d-flex justify-content-center">
-      <div class="col-md-10">
-          <div class="card">
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="images p-3">
-                          <div class="text-center p-4"> <img id="main-image" src="${arrfil.images[0]}" width="250" /> </div>
-                          <div class="thumbnail text-center"> <img onclick="change_image(this)" src="${arrfil.images[1]}" width="70"> <img onclick="change_image(this)" src="${arrfil.images[2]}" width="70"> </div>
-                      </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="product p-4">
-                          <div class="d-flex justify-content-between align-items-center">
-                             <a href='/index.html'> <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
-                          </div>
-                          <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">${arrfil.brand}</span>
-                              <h5 class="text-uppercase">${arrfil.title}</h5>
-                              <div class="price d-flex flex-row align-items-center"> <span class="act-price">${arrfil.price}</span>
-                                  <div class="ml-2"> <small class="dis-price">$59</small> <span>${arrfil.discountPercentage}%</span> </div>
-                              </div>
-                          </div>
-                          <p class="about">${arrfil.description}</p>
-                          <div class="sizes mt-5">
-                              <h6 class="text-uppercase">Size</h6> <label class="radio"> <input type="radio" name="size" value="S" checked> <span>S</span> </label> <label class="radio"> <input type="radio" name="size" value="M"> <span>M</span> </label> <label class="radio"> <input type="radio" name="size" value="L"> <span>L</span> </label> <label class="radio"> <input type="radio" name="size" value="XL"> <span>XL</span> </label> <label class="radio"> <input type="radio" name="size" value="XXL"> <span>XXL</span> </label>
-                          </div>
-                          <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4 onclick="clickOnCartButton(${arrfil.id})">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>`
 
-product.innerHTML=desc;
 
+function onLoadCartNumbers () {
+    let productNumbers = localStorage.getItem ("cartNumbers") ;
+    carts = document.querySelectorAll(".add-cart");
+    if (productNumbers) {
+        document.querySelector (".nav-cart span").textContent = productNumbers ;
+   }
 }
-function change_image(image){
-
-  var container = document.getElementById("main-image");
-
- container.src = image.src;
+function cartNumbers (product) {
+    // console.log("The prduct clicked is",product);
+    let productNumbers = localStorage.getItem ("cartNumbers") ;
+    productNumbers = parseInt ( productNumbers ) ;
+    if (productNumbers) {
+        localStorage.setItem ("cartNumbers", productNumbers + 1 );
+        document.querySelector(".nav-cart span").textContent = productNumbers + 1;
+    }else{
+        localStorage.setItem ("cartNumbers", 1 );
+        document.querySelector(".nav-cart span").textContent =  1;
+    }
+    setItems(product);
 }
-document.addEventListener("DOMContentLoaded", function(event) {
-});
-/* /////////////////////////////// PRODUCTS /////////////////////////////// */
 
-/* /////////////////////////////// CART /////////////////////////////// */
-let cardProductDom = document.querySelector(".prouduct-cart");
-var counter = 0;
-let items = [];
-let storage = JSON.parse(localStorage.getItem("products"));
-
-if (storage) {
-  items = storage;
-} else {
-  items = [];
+function setItems(product){
+    // console.log("Inside of SetItems function");
+    // console.log("My product is ", product);
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+    // console.log("My cartItems are",cartItems);
+    if(cartItems != null){
+        // cartItems
+        if(cartItems[product.tag] == undefined){
+            cartItems = {
+                ...cartItems,
+                [product.tag]: product
+            }
+        }
+        cartItems[product.tag].inCart += 1;
+    }else{
+        product.inCart = 1;
+        cartItems = {
+            [product.tag]: product
+        }   
+    } 
+    localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
-//print values on popup cart
-let popup = storage.map((elm) => {
-  let designcart = `
-  <div class="card mb-2 id=${elm.id}">
-      <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <div class="d-flex flex-row align-items-center">
-            <div>
-              <img
-                src="${elm.images[0]}"
-                class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
+
+function totalCost(product){
+    // console.log("The product price is ",product.price);
+    let cartCost = localStorage.getItem("totalCost") ;
+    // console.log ( " My cartCost is " , cartCost ) ;
+    // console.log ( typeof cartCost ) ;
+    if (cartCost != null) {
+        cartCost = parseInt ( cartCost ) ;
+        localStorage.setItem ( "totalCost" , cartCost + product.price ) ;
+    }else{
+        localStorage.setItem ( "totalCost" , product.price ) ;
+    }
+}
+
+function displayCart () {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems) ;
+    let productContainer = document.querySelector(".products") ;
+    let cartCost = localStorage.getItem("totalCost") ;
+
+    // console.log (cartItems) ;
+   if(cartItems && productContainer ) {
+        productContainer.innerHTML = ' ' ;
+        Object.values(cartItems).map(item => {
+            productContainer.innerHTML +=`
+            <div class="product">
+                <i class = "fa-solid fa-x"></i>
+                <img src = ${item.src}>
+                <span>${item.name}</span>
             </div>
-            <div class="ms-3">
-              <h6>${elm.title}</h6>
-              <p class="small mb-0">256GB, Navy Blue</p>
+            <div class = "price"> ${item.price},00</div>
+            <div class = "quantity">
+                <i class="fa-solid fa-minus"></i>
+                <span>${item.inCart}</span>
+                <i class="fa-solid fa-plus"></i>
             </div>
-          </div>
-          <div class="d-flex flex-row align-items-center">
-            <div style="width: 50px;">
-              <h5 class="fw-normal mb-0">2</h5>
-            </div>
-            <div style="width: 80px;">
-              <h5 class="mb-0">${elm.price}</h5>
-            </div>
-            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-          </div>
+            <div class="total">${item.inCart * item.price},00</div>
+            `;
+        }) ;
+
+        productContainer.innerHTML +=`
+        <div class = "basketTotalContainer">
+            <h4 class = "basketTotalTitle">
+                Basket Total
+            </h4>
+            <h4 class = "basketTotal">
+                $${cartCost},00
+            </h4>
         </div>
+        <div class="checkout">
+        <a href="/index.html"><button class="normal" >Shop More</button></a>
+        <a href=""><button class="normal" >Proceed to check out</button></a>
+        
+        <button class="normal"></button>
       </div>
-    </div>    
-  `;
-  if (cardProductDom) {
-    cardProductDom.innerHTML += designcart;
-  }
-});
-function clickOnCartButton(id) {
-  fetch("https://dummyjson.com/products")
-    .then((res) => res.json())
-    .then((res) => {
-      let arr = res.products;
-      let truiTem = arr.find((elm) => elm.id === id);
-      items.push(truiTem);
-      localStorage.setItem("products", JSON.stringify(items));
-
-      let designcart = `
-  <div class="card mb-2 id=${truiTem.id}">
-      <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <div class="d-flex flex-row align-items-center">
-            <div>
-              <img
-                src="${truiTem.images[0]}"
-                class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-            </div>
-            <div class="ms-3">
-              <h6>${truiTem.title}</h6>
-              <p class="small mb-0">256GB, Navy Blue</p>
-            </div>
-          </div>
-          <div class="d-flex flex-row align-items-center">
-            <div style="width: 50px;">
-              <h5 class="fw-normal mb-0">2</h5>
-            </div>
-            <div style="width: 80px;">
-              <h5 class="mb-0">${truiTem.price}</h5>
-            </div>
-            <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>    
-  `;
-      cardProductDom.innerHTML += designcart;
-    });
-  notify.innerHTML = items.length + 1;
-}
-if (notify) {
-  notify.innerHTML = items.length;
-}
-//pop up for cart button
-function menu() {
-  var user = JSON.parse(sessionStorage.getItem("user"));
-  if (!user) {
-    location.replace("/src/Pages/login.html");
-  } // guest user can't enter this page
-  else {
-    if (cardProductDom.innerHTML != "") {
-      if (cardProductDom.style.display == "block") {
-        cardProductDom.style.display = "none";
-      } else {
-        cardProductDom.style.display = "block";
-      }
-    }
-  }
+        `;
+   } 
 }
 
-let locationINcart = document.querySelector(".container .card .productss");
 
-if (storage) {
-  cartPage();
-} else {
-  ``;
-}
-function cartPage() {
-  let item = storage.map((elm) => {
-    let produ = `<div class="card mb-3">
-<div class="card-body">
-  <div class="d-flex justify-content-between">
-    <div class="d-flex flex-row align-items-center">
-      <div>
-        <img
-          src="${elm.images[0]}"
-          class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
-      </div>
-      <div class="ms-3">
-        <h5>${elm.title}</h5>
-        <p class="small mb-0">${elm.description}</p>
-      </div>
-    </div>
-    <div class="d-flex flex-row align-items-center">
-      <div style="width: 50px;">
-        <h5 class="fw-normal mb-0">2</h5>
-      </div>
-      <div style="width: 80px;">
-        <h5 class="mb-0">${elm.price}</h5>
-      </div>
-      <a href="#!" style="color: #cecece;" onclick='removeItemfromCart(${elm.id})'><i class="fas fa-trash-alt"></i></a>
-    </div>
-  </div>
-</div>
-</div>`;
-<<<<<<< HEAD
-    if(locationINcart){
-=======
-    if (locationINcart) {
->>>>>>> 751f6efdf74fc578ef8f9d427458c87adf06362c
-      locationINcart.innerHTML += produ;
-    }
-  });
-}
-//removeItemfromCart();
-function removeItemfromCart(id) {
-  if (storage) {
-    console.log(storage);
-    let iitemes = storage.filter((elm) => elm.id !== id);
-    console.log(iitemes);
-    localStorage.setItem("products", JSON.stringify(iitemes));
-  } else {
+function showpopup(product){
+    // {
+    // const desSection= document.querySelector("#prodetails");
+    // const d1 =document.createElement("div");
+    // d1.classList.add("single-pro-image");
+
+    // var img= document.createElement("img");
+    // img.src = product.src;
+    // d1.appendChild(img);
+
+    // desSection.appendChild(d1);
     
-  }
-}
-let countOfitemInCart = document.querySelector(".countItem");
-<<<<<<< HEAD
-if(countOfitemInCart){
-  countOfitemInCart.innerHTML = `You have <span>${items.length}</span> items in your cart`;
+    // const d2 =document.createElement("div");
+    // d2.classList.add("single-pro-details");
+
+    // var h4 = document.createElement("h4");
+    // var h4Text = document.createTextNode(product.categ+"'s Fashion Shirt");
+    // h4.appendChild(h4Text);
+    // d2.appendChild(h4);
+
+    // var h2 = document.createElement("h2");
+    // var h2Text = document.createTextNode("$"+product.price+",00");
+    // h2.appendChild(h2Text);
+    // d2.appendChild(h2);
+
+    // let btn = document.createElement("button");
+    // btn.classList.add("normal");
+    // btn.innerHTML = "Add to Cart";
+    // d2.appendChild(btn);
+
+    // var h4I = document.createElement("h4");
+    // var h4IText = document.createTextNode("Product Details");
+    // h4I.appendChild(h4IText);
+    // d2.appendChild(h4I);
+
+    // var span = document.createElement("span");
+    // var spanText = document.createTextNode(product.descr);
+    // span.appendChild(spanText);
+    // d2.appendChild(span);
+
+    // desSection.appendChild(d1)}
+
+    
+    const desSection= document.querySelector("section #prodetails");
+    desSection.innerHTML=``;
+    desSection.innerHTML +=`<div class="single-pro-image">
+        <img src=${product.src} width="100%" alt="product" id="MainImg">
+    </div>
+    <div class="single-pro-details">
+        <h4>${product.categ}'s Fashion </h4>
+        <h2>$${product.price},00</h2>
+        <select >
+            <option >Available Size</option>
+            <option >Small</option>
+            <option >Meduim</option>
+            <option >Large</option>
+            <option >X-Large</option>
+        </select>
+        <h4>Product Details</h4>
+        <span>${product.descr}</span>
+    </div>`;
+    
+    // window.location.href = "/src/Pages/singleProduct.html";
 }
 
-=======
-if (countOfitemInCart) {
-  countOfitemInCart.innerHTML = `You have <span>${items.length}</span> items in your cart`;
+function showP(product){
+    // targetP = document.querySelectorAll(".pro-containerNA .pro")
+    // document.querySelector(".single-pro-image img").src = product.src;
+    document.querySelector("#prodetails .single-pro-details h4").innerHTML=(product.categ);
+    // document.querySelector(".single-pro-details h2").innerHTML=("$"+product.price+",00")
+    // document.querySelector(".single-pro-details span").innerHTML=(product.descr)
+    
+
+
+
+
 }
->>>>>>> 751f6efdf74fc578ef8f9d427458c87adf06362c
-//let getcartbutton=document.getElementById('addtocart');
-//getcartbutton.addEventListener('click',function (){console.log("Hello")})
-/* /////////////////////////////// CART /////////////////////////////// */
+
+function onGoing(){
+    var carts = document.querySelectorAll(".add-cart");
+    var productpop= document.querySelectorAll(".pro-containerNA .pro img");
+    var feturepop = document.querySelectorAll(".pro-container .pro img");
+    
+    for(let i=0; i< carts.length; i++){
+        carts[i].addEventListener("click",()=>{
+            if(i >= 4){
+                let j = i-4;
+                // console.log("added over cart "+i);
+                // console.log("added over cart "+j);
+                cartNumbers(products[j])
+                totalCost(products[j])
+            }else{
+                // console.log("added tyyyyyyyyyo cart "+i);
+                cartNumbers(products[i])
+                totalCost(products[i])
+            }  
+        })
+    }
+
+    for(let i=0; i< productpop.length; i++){
+        productpop[i].addEventListener("click",()=>{
+            console.log("added to cart "+i);
+            // showpopup(products[i])
+            showP(productpop[i]);
+            window.location.href = "/src/Pages/singleProduct.html";
+            // productpop[i].getElementsByTagName("p").style.display="block";
+            // document.querySelector(".p"+i).style.display=" ";
+            // console.log(document.querySelector(".p"+i));
+        })
+    }
+
+    // for(let i=0; i< feturepop.length; i++){
+    //     feturepop[i].addEventListener("click",()=>{
+    //         console.log("added to cart "+i);
+    //     })
+    // }
+
+}
+
+onLoadCartNumbers();
+
+displayCart();
+
+productsload(products,2);
+productsload(products,1);   
+ 
+onGoing();
+
+
+/* /////////////////////////////// Start PRODUCT FILTER /////////////////////////////// */
+
+const productsFilter = document.querySelectorAll(".pro");
+// console.log(productsFilter);
+const categories = document.querySelectorAll('.category');
+
+for (var i = 0; i < categories.length; i++) {
+    categories[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active-category");
+    current[0].classList.remove('active-category');
+    this.classList.add('active-category');
+  });
+}
+
+document.querySelector(".products-categroy").addEventListener("click", (event) => {
+  if (event.target.tagName != "LI") return false;
+  let filter = event.target.dataset["f"];
+
+  productsFilter.forEach((elem) => {
+    elem.classList.remove("hide");
+    if (!elem.classList.contains(filter) && filter !== "all") {
+      elem.classList.add("hide");
+    }
+  });
+});
+
+/* /////////////////////////////// END PRODUCT FILTER /////////////////////////////// */
+
+
+/* /////////////////////////////// Start Scroll Up Button /////////////////////////////// */
