@@ -1,12 +1,101 @@
-#name_error,
+/* header */
+header {
+    background-color: #131A22;
+    position: fixed;
+    width: 100%;
+}
+
+header .nav-item a {
+    color: white !important;
+}
+
+header .nav-item a:hover{
+    color: white;
+}
+
+header .dropdown-menu  {
+    background-color: #232F3E;
+}
+
+header .dropdown-menu a:hover{
+    background-color: #131A22;
+}
+
+
+/* Login and Register pages */
+
+.login, .registeration, .profile {
+    padding-top: 120px;
+    color: white;
+}
+
+.login h2 {
+    color: rgba(0, 128, 0, 0.7);
+    font-size: 3rem;
+    font-style: italic;
+}
+
+
+.registeration h2 {
+    color: #0d6efd;
+    font-size: 3rem;
+    font-style: italic;
+}
+
+/* show errors */
+#first_name_error,
+#last_name_error,
 #email_error,
 #password_error,
 #password-confirm_error {
     position: absolute;
     right: 10px;
 }
-.prouduct-cart{
-    position: absolute;
-    background-color: aqua;
-    right: 30px;
+
+/* Profile page */
+.profile label {
+    color: black;
+}
+
+/* up button */
+#to_up {
+    font-size: 30px;
+    padding: 10px;
+    position: fixed;
+    right: 10px;
+    bottom: 5px;
+    color: #20518b;
+    cursor: pointer;
+    display: none;
+}
+
+/* foooter */
+.footer
+{
+    margin-top: 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #131A22;
+    /* #232F3E */
+    color: #fff;
+}
+.footer h1
+{
+    font-size: 15px;
+    margin: 25px 0;
+}
+.footer p
+{
+    font-size: 12px;
+}
+
+.footer hr
+{
+    margin-top: 10px;
+    background-color: #ccc;
+}
+.footer-image img
+{
+    width: 150px;
+    cursor: pointer;
 }
