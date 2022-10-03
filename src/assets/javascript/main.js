@@ -349,6 +349,9 @@ if (upBtn) {
 
 let pro = document.querySelector("#product .container .row");
 let notify = document.querySelector(".nav-item .nav-link .noti");
+let product=document.querySelector("#pPRODUCT")
+
+
 
 let req = new XMLHttpRequest();
 req.open("GET", "https://dummyjson.com/products");
@@ -359,10 +362,10 @@ req.onreadystatechange = function () {
   if ((this.readyState === 4) & (this.status === 200)) {
     let jsfromjson = JSON.parse(this.responseText);
     let prouducts = jsfromjson.products;
-
     function CreatProuduct() {
       let p = prouducts.map((elm) => {
         let des = `<div class="card" style="width: 15rem;">
+                <a href="/src/Pages/prouduct.html"onclick="ProuductSelect(${elm.id})">
                 <img src="${elm.images[0]}" class="card-img-top" alt="...">
                 <div class="card-body">
                 <h4 class="card-title">${elm.title}</h4>
@@ -370,21 +373,91 @@ req.onreadystatechange = function () {
                 <p class="card-text">${elm.description}</p>
                 <a id="addtocart" class="btn btn-primary" onclick="clickOnCartButton(${elm.id})" >ADD TO CART</a>
                 </div>
+                </a>
                 </div>`;
         return des;
       });
+<<<<<<< HEAD
       if(pro){
         pro.innerHTML = p.join(" ");
 
+=======
+      if (pro) {
+        pro.innerHTML = p.join(" ");
+>>>>>>> 751f6efdf74fc578ef8f9d427458c87adf06362c
       }
     }
     CreatProuduct();
   }
 };
+
+function ProuductSelect(id){
+  //location.replace('/src/Pages/prouduct.html')
+  let jsfromjson = JSON.parse(req.responseText);
+  let prouducts = jsfromjson.products;
+  //console.log(prouducts)
+  let arrr=prouducts.filter((elm)=>{
+    return elm.id===id
+  });
+  localStorage.setItem('details',JSON.stringify(arrr))
+ // console.log(arrfil);
+}
+
+if(product){
+  desOnProuduct();
+}
+function desOnProuduct(){
+  let arrfilq=localStorage.getItem('details')
+  let arrfil=JSON.parse(arrfilq)[0];  
+  let desc=`<div class="container mt-5 mb-5">
+  <div class="row d-flex justify-content-center">
+      <div class="col-md-10">
+          <div class="card">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="images p-3">
+                          <div class="text-center p-4"> <img id="main-image" src="${arrfil.images[0]}" width="250" /> </div>
+                          <div class="thumbnail text-center"> <img onclick="change_image(this)" src="${arrfil.images[1]}" width="70"> <img onclick="change_image(this)" src="${arrfil.images[2]}" width="70"> </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="product p-4">
+                          <div class="d-flex justify-content-between align-items-center">
+                             <a href='/index.html'> <div class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i> <span class="ml-1">Back</span> </div> <i class="fa fa-shopping-cart text-muted"></i>
+                          </div>
+                          <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">${arrfil.brand}</span>
+                              <h5 class="text-uppercase">${arrfil.title}</h5>
+                              <div class="price d-flex flex-row align-items-center"> <span class="act-price">${arrfil.price}</span>
+                                  <div class="ml-2"> <small class="dis-price">$59</small> <span>${arrfil.discountPercentage}%</span> </div>
+                              </div>
+                          </div>
+                          <p class="about">${arrfil.description}</p>
+                          <div class="sizes mt-5">
+                              <h6 class="text-uppercase">Size</h6> <label class="radio"> <input type="radio" name="size" value="S" checked> <span>S</span> </label> <label class="radio"> <input type="radio" name="size" value="M"> <span>M</span> </label> <label class="radio"> <input type="radio" name="size" value="L"> <span>L</span> </label> <label class="radio"> <input type="radio" name="size" value="XL"> <span>XL</span> </label> <label class="radio"> <input type="radio" name="size" value="XXL"> <span>XXL</span> </label>
+                          </div>
+                          <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4 onclick="clickOnCartButton(${arrfil.id})">Add to cart</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>`
+
+product.innerHTML=desc;
+
+}
+function change_image(image){
+
+  var container = document.getElementById("main-image");
+
+ container.src = image.src;
+}
+document.addEventListener("DOMContentLoaded", function(event) {
+});
 /* /////////////////////////////// PRODUCTS /////////////////////////////// */
 
 /* /////////////////////////////// CART /////////////////////////////// */
-
 let cardProductDom = document.querySelector(".prouduct-cart");
 var counter = 0;
 let items = [];
@@ -425,8 +498,9 @@ let popup = storage.map((elm) => {
       </div>
     </div>    
   `;
-
-  cardProductDom.innerHTML += designcart;
+  if (cardProductDom) {
+    cardProductDom.innerHTML += designcart;
+  }
 });
 function clickOnCartButton(id) {
   fetch("https://dummyjson.com/products")
@@ -469,9 +543,9 @@ function clickOnCartButton(id) {
     });
   notify.innerHTML = items.length + 1;
 }
-
-notify.innerHTML = items.length;
-
+if (notify) {
+  notify.innerHTML = items.length;
+}
 //pop up for cart button
 function menu() {
   var user = JSON.parse(sessionStorage.getItem("user"));
@@ -524,7 +598,11 @@ function cartPage() {
   </div>
 </div>
 </div>`;
+<<<<<<< HEAD
     if(locationINcart){
+=======
+    if (locationINcart) {
+>>>>>>> 751f6efdf74fc578ef8f9d427458c87adf06362c
       locationINcart.innerHTML += produ;
     }
   });
@@ -541,10 +619,16 @@ function removeItemfromCart(id) {
   }
 }
 let countOfitemInCart = document.querySelector(".countItem");
+<<<<<<< HEAD
 if(countOfitemInCart){
   countOfitemInCart.innerHTML = `You have <span>${items.length}</span> items in your cart`;
 }
 
+=======
+if (countOfitemInCart) {
+  countOfitemInCart.innerHTML = `You have <span>${items.length}</span> items in your cart`;
+}
+>>>>>>> 751f6efdf74fc578ef8f9d427458c87adf06362c
 //let getcartbutton=document.getElementById('addtocart');
 //getcartbutton.addEventListener('click',function (){console.log("Hello")})
 /* /////////////////////////////// CART /////////////////////////////// */
