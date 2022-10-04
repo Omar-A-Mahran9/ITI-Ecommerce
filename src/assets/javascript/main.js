@@ -793,7 +793,7 @@ function onGoing(){
         productpop[i].addEventListener("click",()=>{
             console.log("added to cart "+i);
             // showpopup(products[i])
-            showP(productpop[i]);
+            // showP(productpop[i]);
             window.location.href = "/src/Pages/singleProduct.html";
             // productpop[i].getElementsByTagName("p").style.display="block";
             // document.querySelector(".p"+i).style.display=" ";
