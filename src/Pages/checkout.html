@@ -90,13 +90,13 @@
             <input type = " text " placeholder = " E-mail ">
             <input type = " text " placeholder = " Address ">
             <input type = " text " placeholder = " Land-Marks, Delivery Instructions, More Information....... ">
-            <div class="checkout">
-                <a href="/src/Pages/cart.html"><button class="normal" >Back To Cart</button></a>
-                <a href=""><button class="normal" >Confrim Purchase</button></a>
-
-            </div>
         </form >
+            
     </section>
+    <div class="checkout">
+        <a href="/src/Pages/cart.html"><button class="normal" >Back To Cart</button></a>
+        <a href="/src/Pages/purchaseConfirm.html"><button id="confirmtionDone" class="normal" type="submit" >Confrim Purchase</button></a>
+    </div>
 
       <!-- Bootstrap JavaScript Libraries -->
       <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
@@ -107,6 +107,11 @@
       integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
       </script>
   <script src="/src/assets/javascript/main.js"></script>
+  <script>
+    var timer = setTimeout(function() {
+        window.location='/index.html'
+    }, 3000);
+</script>
 </body>
 
 </html>

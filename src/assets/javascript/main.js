@@ -691,6 +691,7 @@ function displayCart () {
 //         })  
 //     }
 }
+
 function displayCheckout () {
     let cartItems = localStorage.getItem("productsInCart");
     cartItems = JSON.parse(cartItems) ;
@@ -723,7 +724,6 @@ function displayCheckout () {
                 $${cartCost},00
             </h4>
         </div>
-        
         `;
    } 
 
@@ -746,8 +746,6 @@ function saveListOrderLocal(x){
 var arr=[];
 function onGoing(){
     var carts = document.querySelectorAll(".add-cart");
-    var productpop= document.querySelectorAll(".pro-containerNA .pro img");
-    var feturepop = document.querySelectorAll(".pro-container .pro img");
     // console.log("sahm");
     for(let i=0; i< carts.length; i++){
         // console.log("sahm");
@@ -783,6 +781,10 @@ function onGoing(){
     //         // console.log(document.querySelector(".p"+i));
     //     })
     // }
+    // var confDone = document.querySelector("#confirmtionDone");
+    // confDone.addEventListener("click",()=>{
+    //     redirect('/index.html', 500);
+    // })
 }
 
 onLoadCartNumbers();
