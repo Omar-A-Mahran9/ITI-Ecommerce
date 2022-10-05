@@ -1138,7 +1138,7 @@ footer .copyright{
     justify-content: center;
     flex-wrap: wrap;
     margin-top : 50px ;
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
 }  
 .products-container{
     max-width : 650px ;
@@ -1146,8 +1146,6 @@ footer .copyright{
     margin: 0 auto ;
     margin-top : 50px ;
 }
-  
-
 .products-container i{
     font-size: 25px;
     color: #041e42;
@@ -1155,6 +1153,7 @@ footer .copyright{
     margin-right: 10px;
     cursor: pointer;
 }
+
 
 
 .product-header {
@@ -1221,7 +1220,20 @@ footer .copyright{
     width: 100%;
     padding: 10px 0;
 }
-
+.checkout{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px 0;
+}
+.checkout button{
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px;
+    background-color: #088178;
+    color: white;
+    text-decoration: none;
+}
 .basketTotalTitle{
     width: 30%;
 }
@@ -1275,15 +1287,48 @@ color: #1a1a1a;
     color: #1a1a1a;
 }
 
+.products-check {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
 
-/* .pro p{
-    text-align: center;
-    width: 80%;
-    height: 10px;
-    display: none;
-    margin: 0 10%;
-    font-size: 14px;
-    color: black;
-    line-height: 1.4em;
-} */
+.products-check img{
+    width: 75px;
+}
 
+
+
+#form-details-check{
+    padding: 30px 0;
+}
+
+#form-details-check{
+    display: flex;
+    justify-content: center;
+    /* margin: 30px; */
+    /* padding-top: 100px;
+    padding-bottom: 10px; */
+    /* padding: 40px; */
+    /* border: 1px solid #e1e1e1; */
+}
+
+#form-details-check form{
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#form-details-check form input, #form-details-check form textarea{
+    width: 100%;
+    padding: 12px 15px;
+    outline: none;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+}
+
+#form-details-check form button{
+    background-color: #088178;
+    color: white;
+}

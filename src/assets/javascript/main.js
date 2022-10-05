@@ -348,8 +348,8 @@ if (upBtn) {
 
 let products = [
     {
-        name : ' Flowery shirt ' ,
-        tag : ' floweryshirt ' ,
+        name : 'Flowery shirt' ,
+        tag : 'floweryshirt' ,
         price : 15 ,
         brand : "H&M",
         src : "/src/assets/images/products/f3.jpg",
@@ -358,8 +358,8 @@ let products = [
         inCart : 0
     } ,
     {
-        name : ' ColorFul Shirt ' ,
-        tag : ' colorfulshirt ' ,
+        name : 'ColorFul Shirt' ,
+        tag : 'colorfulshirt' ,
         price : 20 ,
         brand : "zara",
         src : "/src/assets/images/products/f1.jpg",
@@ -368,8 +368,8 @@ let products = [
         inCart : 0
     } ,
     {
-        name : ' Cats Blouse ' ,
-        tag : ' catsblouse ' ,
+        name : 'Cats Blouse' ,
+        tag : 'catsblouse' ,
         price : 20 ,
         brand : "H&M",
         src : "/src/assets/images/products/f8.jpg",
@@ -378,8 +378,8 @@ let products = [
         inCart : 0
     } ,
     {
-        name : ' White Flowers Shirt ' ,
-        tag : ' whiteflowersshirt ' ,
+        name : 'White Flowers Shirt' ,
+        tag : 'whiteflowersshirt' ,
         price : 15 ,
         brand : "zara",
         src : "/src/assets/images/products/f2.jpg",
@@ -388,8 +388,8 @@ let products = [
         inCart : 0
     } ,
     {
-        name : ' Baggy Trousers ' ,
-        tag : ' baggytrousers ' ,
+        name : 'Baggy Trousers' ,
+        tag : 'baggytrousers' ,
         price : 15 ,
         brand : "H&M",
         src : "/src/assets/images/products/f7.jpg",
@@ -398,8 +398,8 @@ let products = [
         inCart : 0
     } ,
     {
-        name : ' White Pink Shirt ' ,
-        tag : ' whitepinkshirt ' ,
+        name : 'White Pink Shirt' ,
+        tag : 'whitepinkshirt' ,
         price : 15 ,
         brand : "zara",
         src : "/src/assets/images/products/f4.jpg",
@@ -408,8 +408,8 @@ let products = [
         inCart : 0
     } ,
     {
-        name : ' Navy Blue Shirt ' ,
-        tag : ' navyblueshirt ' ,
+        name : 'Navy Blue Shirt' ,
+        tag : 'navyblueshirt' ,
         price : 20 ,
         brand : "zara",
         src : "/src/assets/images/products/f5.jpg",
@@ -418,8 +418,8 @@ let products = [
         inCart : 0
     } ,
     {
-        name : ' Orange Blue Shirt ' ,
-        tag : ' orangeblueshirt ' ,
+        name : 'Orange Blue Shirt' ,
+        tag : 'orangeblueshirt' ,
         price : 15 ,
         brand : "H&M",
         src : "/src/assets/images/products/f6.jpg",
@@ -428,8 +428,8 @@ let products = [
         inCart : 0
     } ,
     {
-        name : ' Sky Blue Shirt ' ,
-        tag : ' skyblueshirt ' ,
+        name : 'Sky Blue Shirt' ,
+        tag : 'skyblueshirt' ,
         price : 25 ,
         brand : "H&M",
         src : "/src/assets/images/products/n1.jpg",
@@ -438,8 +438,8 @@ let products = [
         inCart : 0
     } ,
     {
-        name : ' Blue shirt ' ,
-        tag : ' blueshirt ' ,
+        name : 'Blue shirt' ,
+        tag : 'blueshirt' ,
         price : 20 ,
         brand : "H&M",
         src : "/src/assets/images/products/n2.jpg",
@@ -448,8 +448,8 @@ let products = [
         inCart : 0
     } ,
     {
-        name : ' White shirt ' ,
-        tag : ' whiteshirt ' ,
+        name : 'White shirt' ,
+        tag : 'whiteshirt' ,
         price : 30 ,
         brand : "zara",
         src : "/src/assets/images/products/n3.jpg",
@@ -459,8 +459,8 @@ let products = [
     } ,
 
     {
-        name : ' Green shirt ' ,
-        tag : ' greenshirt ' ,
+        name : 'Green shirt' ,
+        tag : 'greenshirt' ,
         price : 15 ,
         brand : "zara",
         src : "/src/assets/images/products/n4.jpg",
@@ -566,7 +566,7 @@ function onLoadCartNumbers () {
    }
 }
 function cartNumbers (product) {
-    // console.log("The prduct clicked is",product);
+    console.log("The prduct clicked is",product);
     let productNumbers = localStorage.getItem ("cartNumbers") ;
     productNumbers = parseInt ( productNumbers ) ;
     if (productNumbers) {
@@ -578,6 +578,7 @@ function cartNumbers (product) {
     }
     setItems(product);
 }
+
 
 function setItems(product){
     // console.log("Inside of SetItems function");
@@ -602,6 +603,8 @@ function setItems(product){
     } 
     localStorage.setItem("productsInCart", JSON.stringify(cartItems));
 }
+
+
 
 function totalCost(product){
     // console.log("The product price is ",product.price);
@@ -628,15 +631,13 @@ function displayCart () {
         Object.values(cartItems).map(item => {
             productContainer.innerHTML +=`
             <div class="product">
-                <i class = "fa-solid fa-x"></i>
                 <img src = ${item.src}>
                 <span>${item.name}</span>
             </div>
             <div class = "price"> ${item.price},00</div>
             <div class = "quantity">
-                <i class="fa-solid fa-minus"></i>
                 <span>${item.inCart}</span>
-                <i class="fa-solid fa-plus"></i>
+                <i class="fa-solid fa-plus add-item"></i>
             </div>
             <div class="total">${item.inCart * item.price},00</div>
             `;
@@ -653,132 +654,135 @@ function displayCart () {
         </div>
         <div class="checkout">
         <a href="/index.html"><button class="normal" >Shop More</button></a>
-        <a href=""><button class="normal" >Proceed to check out</button></a>
-        
-        <button class="normal"></button>
+        <a href="/src/Pages/checkout.html"><button class="normal" >Proceed to check out</button></a>
       </div>
         `;
    } 
+
+   displayCheckout();
+   let listorder = localStorage.getItem("listorder");
+   listorder = JSON.parse(listorder) ;
+   let remove = document.querySelectorAll(".remove-item");
+   let add = document.querySelectorAll(".add-item");
+   let reduce = document.querySelectorAll(".reduce-item");
+   console.log("ahmed");
+//    for(let i=0; i< remove.length; i++){
+//         remove[i].addEventListener("click",()=>{
+//             // console.log("remove btn"+i);
+//             // console.log(products[0]);
+//             // removeCartItem(i);
+            
+//         })  
+//     }
+   for(let i=0; i< add.length; i++){
+        add[i].addEventListener("click",()=>{
+            console.log("add btn"+i);
+            // console.log(listorder.length +" list order")
+            // console.log(listorder[3]);
+            cartNumbers(products[listorder[i]])
+            console.log("after caetsnumber");
+            totalCost(products[listorder[i]])
+            displayCart ()
+        })  
+    }
+//    for(let i=0; i< reduce.length; i++){
+//         reduce[i].addEventListener("click",()=>{
+//             console.log("reduce btn"+i);
+//         })  
+//     }
+}
+function displayCheckout () {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems) ;
+    let productContainer = document.querySelector(".products-check") ;
+    let cartCost = localStorage.getItem("totalCost") ;
+
+    // console.log (cartItems) ;
+   if(cartItems && productContainer ) {
+        productContainer.innerHTML = ' ' ;
+        Object.values(cartItems).map(item => {
+            productContainer.innerHTML +=`
+            <div class="product">
+                <img src = ${item.src}>
+                <span>${item.name}</span>
+            </div>
+            <div class = "price"> ${item.price},00</div>
+            <div class = "quantity">
+                <span>${item.inCart}</span>
+            </div>
+            <div class="total">${item.inCart * item.price},00</div>
+            `;
+        }) ;
+
+        productContainer.innerHTML +=`
+        <div class = "basketTotalContainer">
+            <h4 class = "basketTotalTitle">
+                Basket Total
+            </h4>
+            <h4 class = "basketTotal">
+                $${cartCost},00
+            </h4>
+        </div>
+        
+        `;
+   } 
+
+   
 }
 
 
-function showpopup(product){
-    // {
-    // const desSection= document.querySelector("#prodetails");
-    // const d1 =document.createElement("div");
-    // d1.classList.add("single-pro-image");
-
-    // var img= document.createElement("img");
-    // img.src = product.src;
-    // d1.appendChild(img);
-
-    // desSection.appendChild(d1);
-    
-    // const d2 =document.createElement("div");
-    // d2.classList.add("single-pro-details");
-
-    // var h4 = document.createElement("h4");
-    // var h4Text = document.createTextNode(product.categ+"'s Fashion Shirt");
-    // h4.appendChild(h4Text);
-    // d2.appendChild(h4);
-
-    // var h2 = document.createElement("h2");
-    // var h2Text = document.createTextNode("$"+product.price+",00");
-    // h2.appendChild(h2Text);
-    // d2.appendChild(h2);
-
-    // let btn = document.createElement("button");
-    // btn.classList.add("normal");
-    // btn.innerHTML = "Add to Cart";
-    // d2.appendChild(btn);
-
-    // var h4I = document.createElement("h4");
-    // var h4IText = document.createTextNode("Product Details");
-    // h4I.appendChild(h4IText);
-    // d2.appendChild(h4I);
-
-    // var span = document.createElement("span");
-    // var spanText = document.createTextNode(product.descr);
-    // span.appendChild(spanText);
-    // d2.appendChild(span);
-
-    // desSection.appendChild(d1)}
-
-    
-    const desSection= document.querySelector("section #prodetails");
-    desSection.innerHTML=``;
-    desSection.innerHTML +=`<div class="single-pro-image">
-        <img src=${product.src} width="100%" alt="product" id="MainImg">
-    </div>
-    <div class="single-pro-details">
-        <h4>${product.categ}'s Fashion </h4>
-        <h2>$${product.price},00</h2>
-        <select >
-            <option >Available Size</option>
-            <option >Small</option>
-            <option >Meduim</option>
-            <option >Large</option>
-            <option >X-Large</option>
-        </select>
-        <h4>Product Details</h4>
-        <span>${product.descr}</span>
-    </div>`;
-    
-    // window.location.href = "/src/Pages/singleProduct.html";
+function saveListOrderLocal(x){
+    let arr;
+    if(localStorage.getItem("listorder") === null){
+        arr = [];
+    }else{
+        arr = JSON.parse(localStorage.getItem("listorder"));
+    }
+  
+    arr.push(x);
+    localStorage.setItem("listorder",JSON.stringify(arr));
 }
 
-function showP(product){
-    // targetP = document.querySelectorAll(".pro-containerNA .pro")
-    // document.querySelector(".single-pro-image img").src = product.src;
-    document.querySelector("#prodetails .single-pro-details h4").innerHTML=(product.categ);
-    // document.querySelector(".single-pro-details h2").innerHTML=("$"+product.price+",00")
-    // document.querySelector(".single-pro-details span").innerHTML=(product.descr)
-    
-
-
-
-
-}
-
+var arr=[];
 function onGoing(){
     var carts = document.querySelectorAll(".add-cart");
     var productpop= document.querySelectorAll(".pro-containerNA .pro img");
     var feturepop = document.querySelectorAll(".pro-container .pro img");
-    
+    // console.log("sahm");
     for(let i=0; i< carts.length; i++){
+        // console.log("sahm");
         carts[i].addEventListener("click",()=>{
             if(i >= 4){
                 let j = i-4;
                 // console.log("added over cart "+i);
-                // console.log("added over cart "+j);
+                // console.log("added over cart j"+j);
+                if(!arr.includes(j)){
+                    saveListOrderLocal(j)
+                }
                 cartNumbers(products[j])
                 totalCost(products[j])
+                
             }else{
+                if(!arr.includes(i)){
+                    saveListOrderLocal(i)
+                }
                 // console.log("added tyyyyyyyyyo cart "+i);
                 cartNumbers(products[i])
                 totalCost(products[i])
             }  
         })
     }
-
-    for(let i=0; i< productpop.length; i++){
-        productpop[i].addEventListener("click",()=>{
-            console.log("added to cart "+i);
-            // showpopup(products[i])
-            showP(productpop[i]);
-            window.location.href = "/src/Pages/singleProduct.html";
-            // productpop[i].getElementsByTagName("p").style.display="block";
-            // document.querySelector(".p"+i).style.display=" ";
-            // console.log(document.querySelector(".p"+i));
-        })
-    }
-
-    // for(let i=0; i< feturepop.length; i++){
-    //     feturepop[i].addEventListener("click",()=>{
+    // for(let i=0; i< productpop.length; i++){
+    //     productpop[i].addEventListener("click",()=>{
     //         console.log("added to cart "+i);
+    //         // showpopup(products[i])
+    //         showP(productpop[i]);
+    //         window.location.href = "/src/Pages/singleProduct.html";
+    //         // productpop[i].getElementsByTagName("p").style.display="block";
+    //         // document.querySelector(".p"+i).style.display=" ";
+    //         // console.log(document.querySelector(".p"+i));
     //     })
     // }
-
 }
 
 onLoadCartNumbers();
