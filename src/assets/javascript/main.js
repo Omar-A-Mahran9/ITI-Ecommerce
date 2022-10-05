@@ -781,10 +781,7 @@ function onGoing(){
     //         // console.log(document.querySelector(".p"+i));
     //     })
     // }
-    // var confDone = document.querySelector("#confirmtionDone");
-    // confDone.addEventListener("click",()=>{
-    //     redirect('/index.html', 500);
-    // })
+    
 }
 
 onLoadCartNumbers();
