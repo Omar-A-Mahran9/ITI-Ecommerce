@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/assets/style/css/section-style.css">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Home</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="./src/assets/style/css/main.css">
+</head>
+
+<body onload="loadUserData()">
+    
+    <!-- Start Header and Navbar -->
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="/index.html"><img src="/src/assets/images/logo.png" width="40" alt="logo"></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index.html#pRoductS">Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index.html#about-us">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/index.html#contact-us">Contact</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item dropdown me-3">
+                                <a id="user" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a id="user_login" class="dropdown-item" href="/src/Pages/login.html">Login</a>
+                                    </li>
+                                    <li><a id="user_register" class="dropdown-item"
+                                            href="/src/Pages/register.html">Register</a>
+                                    </li>
+                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link nav-cart" href="/src/Pages/cart.html">
+                                    <i class="fa-solid fa-cart-shopping"></i><span>0</span>
+                                </a>
+                            </li>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- End Header and Navbar -->     
+
+    <!-- Section 1 -->       
+    <section class="home-header">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons & up to 70% off!</p>
+        <a href="./index.html#pRoductS"><button>Shop Now</button></a>
+    </section>
+    <!-- End Section 1 -->      
+
+    <!-- Section 2 -->
+    <section class="section-p1" id="feature">
+        <div class="fe-box">
+            <img src="./src/assets/images/features/f1.png" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="./src/assets/images/features/f2.png" alt="">
+            <h6>Online Order</h6>
+        </div>
+        <div class="fe-box">
+            <img src="./src/assets/images/features/f3.jpeg"  style="height: 105px; width: 150px;" alt="">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="./src/assets/images/features/f4.png" alt="">
+            <h6>Promotions</h6>
+        </div>
+        <div class="fe-box">
+            <img src="./src/assets/images/features/f5.png" alt="">
+            <h6>Happy Sell</h6>
+        </div>
+        <div class="fe-box">
+            <img src="./src/assets/images/features/f6.png" alt="">
+            <h6>24/7 Support</h6>
+        </div>
+    </section>
+    <!-- End Section 2 -->
+
+    <!-- Section 3 -->        
+    <section class="section-p1" id="product1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="pro-container">
+            
+        </div>
+    </section>
+    <!-- End Section 3 -->      
+
+    <!-- Section 4 -->            
+    <section class="section-m1" id="banner">
+        <h4>Spec Service</h4>
+        <h2>Up to <span>50% Off</span> - All products and blablabla</h2>
+        <button class="normal">Explore More</button>
+    </section>
+    <!-- End Section 4 -->          
+
+    <!-- Section 5 -->           
+    <section class="section-p1" id="product1">
+        <h2 id="pRoductS">Products</h2>
+        <p>Summer Collection New Modern Design</p>
+        <div class="filter-btns">
+            <button type="button" class="filter-btn" id="all">All</button>
+            <button type="button" class="filter-btn" id="men">Men</button>
+            <button type="button" class="filter-btn" id="women">Women</button>
+        </div>
+        <div class="pro-containerNA">
+            
+        </div>
+    </section>
+    <!-- End Section 5 -->   
+    
+    <!-- Section 6 -->
+    <section class="section-p1" id="sm-banner">
+        <div class="banner-box">
+            <h4>Crazy Deals</h4>
+            <h2>Buy 1 Get 1 Free</h2>
+            <span>The best ------ is on sale at ---</span>
+            <button class="white">Learn More</button>
+        </div>
+        <div class="banner-box banner-box2">
+            <h4>Crazy Deals</h4>
+            <h2>Buy 1 Get 1 Free</h2>
+            <span>The best ------ is on sale at ---</span>
+            <button class="white">Learn More</button>
+        </div>
+    </section>
+    <!-- End Section 6 -->
+
+    <!-- Section 7 -->
+    <section id="banner3">
+        <div class="banner-box">
+            <h4>Deals</h4>
+            <h2>New --- 50% OFF</h2>
+        </div>
+        <div class="banner-box banner-box2">
+            <h4>Deals</h4>
+            <h2>New --- 50% OFF</h2>
+        </div>
+        <div class="banner-box banner-box3">
+            <h4>Deals</h4>
+            <h2>New --- 50% OFF</h2>
+        </div>
+    </section>
+    <!-- End Section 7 -->
+
+    <!-- About Us Section  Ahmed  -->
+    <section class="section-p1" id="about-us">
+        <h2>About Us</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime architecto non repellendus minus dolore mollitia exercitationem velit ipsum nisi consectetur. Dicta et nostrum non facilis saepe fugit tempora pariatur iusto? Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio minima recusandae fuga culpa sapiente veritatis minus iste, repudiandae, unde obcaecati consectetur optio explicabo vero in corrupti nulla voluptate incidunt suscipit?</p>
+    </section>
+
+    <!-- About Us Section -->
+
+    <!--Contact Section Ahmed Samy -->
+    <section class="contact-container section-p1" id="contact-us">
+        <h2>Contact Us</h2>
+        <section id="contact-details">
+            <div class="details">
+                <span>GET IN TOUCH</span>
+                <h3>Visit our store or contact us today</h3> 
+                <div >
+                    <li>
+                        <i class="fal fa-map"></i>
+                        <p>Smouha Alexandria</p>
+                    </li>
+                    <li>
+                        <i class="far fa-envelope"></i>
+                        <p>contact@example.com</p>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+20 2424568</p>
+                    </li>
+                    <li>
+                        <i class="far fa-clock"></i>
+                        <p>Sunday to Friday: 9:00 AM to 18:00 PM</p>
+                    </li>
+                </div>   
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3413.013300430302!2d29.90390051463998!3d31.192644570373314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f5c394ebd03ec1%3A0x16cbff5d844ff34b!2sInformation%20Technology%20Institute!5e0!3m2!1sen!2seg!4v1664482943029!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <section id="form-details">
+            <form action = " " >
+                <span> LEAVE A MESSAGE </span>
+                <h2> We love to hear from you </h2>
+                <input type = " text " placeholder = " Your Name ">
+                <input type = " text " placeholder = " E-mail ">
+                <input type = " text " placeholder = " Subject ">
+                <textarea name = " " id = " " cols = " 30 " rows = " 5 " placeholder = " Your Message "> </textarea>
+                <button class="normal"> Submit </button>
+            </form >
+
+            <div class="people">
+                <div></div>
+                <div></div>
+                <div>
+                    <img src="/src/assets/images/people/1.png" alt="">
+                    <p><span>John Doe</span> Senior Manager <br> Phone: +20 566757631 <br> Email: contact@example.com</p>
+                </div>
+                <div>
+                    <img src="/src/assets/images/people/2.png" alt="">
+                    <p><span>William Smith</span> Senior Manager <br> Phone: +20 566757631 <br> Email: contact@example.com</p>
+                </div>
+                <div>
+                    <img src="/src/assets/images/people/3.png" alt="">
+                    <p><span>Emma Stone</span> Senior Manager <br> Phone: +20 566757631 <br> Email: contact@example.com</p>
+                </div>
+            </div>
+        </section>
+    </section>
+    <!--End Contact Section Ahmed Samy -->
+
+
+    <!-- Section 8 -->
+    <section class="section-p1 section-m1" id="newsletter">
+        <div class="newstext">
+            <h4>Get Newsletters</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your E-mail address">
+            <button class="normal">Submit</button>
+        </div>
+    </section>
+    <!-- End Section 8 -->
+
+        <!-- Scroll up button -->
+        <div id="to_up">
+            <i class="fa-regular fa-circle-up"></i>
+        </div>
+
+    <!-- Footer Section -->
+    <footer class="section-p1">
+        <div class="col">
+            <img class="logo" src="./img/logo.png" alt=""> <!--logo-->
+            <h4>Contact</h4>
+            <p><strong>Address:</strong>ljksadkljas</p>
+            <p><strong>Phone:</strong>+20081808787</p>
+            <p><strong>Hours:</strong>10:00 - 18:00</p>
+            <div class="follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest"></i>
+                    <i class="fab fa-tiktok"></i>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact us</a>
+        </div>
+        <div class="col">
+            <h4>My Account</h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">My Wishlist</a>
+            <a href="#">Track My Order</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="col install">
+            <h4>Install App</h4>
+            <p>From App Store or Google Play</p>
+            <div class="row">
+                <img src="./src/assets/images/pay/app.jpg" alt="app store">
+                <img src="./src/assets/images/pay/play.jpg" alt="google">
+            </div>
+            <p>Secured Payement Gateways</p>
+            <img src="./src/assets/images/pay/pay.png" alt="visa">
+        </div>
+    
+        <div class="copyright">
+            <p>@ 2022, ITI JS Project</p>
+        </div>
+    </footer>
+    <!-- Footer Section -->
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+            integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous">
+            </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+            integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+            </script>
+        <script src="/src/assets/javascript/main.js" ></script>
+
+        <script>
+            // $(function(){
+            //     $(".pro img").on("click",function(){
+            //         console.log("hi");
+            //         $(this).next("p").slideToggle(1000);
+            //     });
+            // });
+        </script>
+    </body>
+    
+</html>
